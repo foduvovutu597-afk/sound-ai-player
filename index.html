@@ -13,11 +13,28 @@ li a.dl{color:#b388ff;text-decoration:none;width:44px;height:44px;line-height:44
 li{gap:4px}li span.n{min-width:0;overflow:hidden;text-overflow:ellipsis}.ch{height:36px;border-radius:18px;padding:0 12px;font-size:.85rem}.ch i{width:14px;height:14px;vertical-align:middle}.ed{background:none;width:36px;height:36px;font-size:1rem;flex:none;display:none}body.owner .ed{display:inline-block}
 #ios{display:none;background:#1e1530;border-radius:12px;padding:8px;margin-top:8px}#ios a{display:block;padding:14px;color:#fff;background:#2a2040;border-radius:10px;margin:6px 0;text-decoration:none}
 @media(max-width:420px){.w{padding:8px 10px 0}.big{height:min(30vh,260px)}button{width:48px;height:48px}button.p{width:58px;height:58px}li img{width:40px;height:40px}}
-.big{height:min(22vh,210px);border-radius:12px}.now{margin:6px 0}.c{gap:16px;margin:6px 0}button{width:46px;height:46px}button.p{width:56px;height:56px}h1{margin:0 0 4px;font-size:1rem;line-height:28px}.w{padding-top:2px!important}#own{width:32px;height:32px;font-size:1rem}.mdl button{width:auto;height:auto;border-radius:10px;padding:10px;font-size:1rem}@media(max-width:420px){.big{height:min(20vh,170px)}button{width:42px;height:42px}button.p{width:50px;height:50px}}li img{width:44px;height:44px;border-radius:6px;object-fit:cover}.ch.ic{width:36px;padding:0;font-size:1rem}#shf.on{background:#7c4dff}</style></head><body><div class="w"><div class="top"><h1><span>RG-SOUND</span></h1><button id="own" title="Режим владельца">⚙</button>
-<img class="big" id="big" src="default.jpg" alt=""><div class="now" id="now">Загрузка…</div>
+.big{height:min(22vh,210px);border-radius:12px}.now{margin:6px 0}.c{gap:16px;margin:6px 0}button{width:46px;height:46px}button.p{width:56px;height:56px}h1{margin:0 0 4px;font-size:1rem;line-height:28px}.w{padding-top:2px!important}#own{width:32px;height:32px;font-size:1rem}.mdl button{width:auto;height:auto;border-radius:10px;padding:10px;font-size:1rem}@media(max-width:420px){.big{height:min(20vh,170px)}button{width:42px;height:42px}button.p{width:50px;height:50px}}li img{width:44px;height:44px;border-radius:6px;object-fit:cover}.ch.ic{width:36px;padding:0;font-size:1rem}#shf.on{background:#7c4dff}.w{max-width:600px}
+.pl{display:flex;gap:16px;align-items:stretch;--g:16px;--ib:42px;--nb:58px;--pb:76px;--hd:32px;--cv:calc(var(--hd) + 24px + var(--ib) + var(--pb) + 3*var(--g))}
+.lc{flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--g)}
+.hd{display:flex;align-items:center;gap:8px;height:var(--hd)}.hd h1{margin:0 0 0 4px;font-size:1.9rem;line-height:var(--hd);letter-spacing:3px;text-align:left;font-weight:800}
+.hd h1 span{background:linear-gradient(90deg,#b388ff,#ff80ab);-webkit-background-clip:text;background-clip:text;color:transparent}
+#own,#rnc{position:static;width:24px;height:24px;padding:0;font-size:1.05rem;background:none;opacity:.7;border-radius:6px}
+body:not(.owner) #rnc{display:none}
+.lc .now{text-align:left;margin:0;font-size:1.05rem;height:24px;line-height:24px}
+.ir{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}.ir::-webkit-scrollbar{display:none}
+.ir .ch{flex:none;width:var(--ib);height:var(--ib);padding:0;border-radius:50%;font-size:1rem;display:flex;align-items:center;justify-content:center}.ir .ch i{width:16px;height:16px}
+.lc .c{justify-content:flex-start;gap:var(--g);margin:0}.lc .c button{width:var(--nb);height:var(--nb);font-size:1.2rem}.lc .c button.p{width:var(--pb);height:var(--pb);font-size:1.6rem}
+.pl .big{flex:none;margin:0;width:var(--cv);height:var(--cv);border-radius:16px}
+.bar{margin-top:var(--g,16px)}#chips{margin-top:6px}
+@media(max-width:480px){.pl{gap:12px;--g:10px;--ib:34px;--nb:44px;--pb:56px;--hd:28px}.hd h1{font-size:1.35rem;letter-spacing:2px}.lc .now{font-size:.95rem;height:20px;line-height:20px}.pl{--cv:calc(var(--hd) + 20px + var(--ib) + var(--pb) + 3*var(--g))}.ir{gap:6px}}
+@media(max-width:480px){.hd h1{white-space:nowrap;font-size:1.2rem;letter-spacing:1px}.pl .big{width:min(var(--cv),38vw);height:min(var(--cv),38vw)}}.hd h1{white-space:nowrap}
+</style></head><body><div class="w"><div class="top"><div class="pl"><div class="lc"><div class="hd"><button id="own" title="Режим владельца" aria-label="Режим владельца">⚙</button><button id="rnc" class="ed" title="Переименовать текущий трек" aria-label="Переименовать текущий трек">✎</button><h1><span>RG-SOUND</span></h1></div>
+<div class="now" id="now">Загрузка…</div>
+<div class="ir"><button class="ch ic" id="rf" title="Обновить песни" aria-label="Обновить песни">↻</button><button class="ch ic" data-f="fav" title="Избранное" aria-label="Избранное">★</button><button class="ch ic" id="shf" title="Перемешать" aria-label="Перемешать"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg></button><button class="ch" data-f="1" title="Зелёная метка"><i style="background:#4caf50"></i></button><button class="ch" data-f="2" title="Жёлтая метка"><i style="background:#ffc107"></i></button><button class="ch" data-f="3" title="Красная метка"><i style="background:#f44336"></i></button></div>
+<div class="c"><button id="prev" title="Предыдущий">⏮</button><button class="p" id="play" title="Играть">▶</button><button id="next" title="Следующий">⏭</button></div></div>
+<img class="big" id="big" src="default.jpg" alt=""></div>
 <div class="bar" id="bar"><div class="fill" id="fill"></div></div><div class="t"><span id="cur">0:00</span><span id="dur">0:00</span></div>
-<div class="c"><button id="rep0" style="visibility:hidden;width:40px;height:40px"></button><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button><button id="shf" title="Перемешать" aria-label="Перемешать" style="width:40px;height:40px;font-size:1rem">🔀</button></div>
-<div class="f" id="chips"><button class="ch ic" id="rf" title="Обновить песни" aria-label="Обновить песни">↻</button><button class="ch ic" data-f="fav" title="Избранное" aria-label="Избранное">★</button><button class="ch" data-f="1"><i style="background:#4caf50"></i></button><button class="ch" data-f="2"><i style="background:#ffc107"></i></button><button class="ch" data-f="3"><i style="background:#f44336"></i></button><span id="gen" style="display:contents"></span><button class="ch ic" id="zip" title="Скачать выбранное" aria-label="Скачать выбранное">⬇</button></div><div id="ios"></div></div>
+<div class="f" id="chips"><span id="gen" style="display:contents"></span><button class="ch ic" id="zip" title="Скачать выбранное" aria-label="Скачать выбранное">⬇</button></div><div id="ios"></div></div>
 <ul id="list"></ul></div>
 <div id="toast" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#7c4dff;padding:12px 18px;border-radius:22px;opacity:0;transition:opacity .3s;pointer-events:none">.</div><audio id="au" preload="metadata"></audio>
 <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
@@ -84,6 +101,7 @@ function order(N){if(!SH)return N.slice().sort((a,b)=>a.file.localeCompare(b.fil
 function shUI(){$('shf').classList.toggle('on',SH)}shUI();
 $('shf').onclick=()=>{SH=!SH;localStorage.setItem('rgsound_shuffle',SH?'1':'0');if(SH)RK={};const cur=T[i]&&T[i].file;T=order(T);const k=T.findIndex(t=>t.file===cur);i=k<0?0:k;render();filt();mark();toast(SH?'Перемешано':'Обычный порядок')};
 const nx=()=>step(1);
+if($('rnc'))$('rnc').onclick=()=>{if(T[i])renameT(T[i])};
 $('next').onclick=()=>{load(nx());au.play()};$('prev').onclick=()=>{load(step(-1));au.play()};au.onended=()=>{load(nx());au.play()};
 const fmt=s=>isNaN(s)?'0:00':Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
 au.ontimeupdate=()=>{$('fill').style.width=(au.currentTime/au.duration*100||0)+'%';$('cur').textContent=fmt(au.currentTime);$('dur').textContent=fmt(au.duration)};
