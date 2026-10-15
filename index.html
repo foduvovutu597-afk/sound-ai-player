@@ -1,22 +1,24 @@
 <!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>RG-SOUND</title><link rel="icon" href="cover.svg">
-<style>body{margin:0;font-family:system-ui,sans-serif;background:#120c1f;color:#fff;display:flex;justify-content:center}
-.w{width:100%;max-width:480px;padding:24px;box-sizing:border-box}h1{font-size:1.4rem;text-align:center;letter-spacing:2px}h1 span{color:#b388ff}
-.big{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px;box-shadow:0 10px 40px #0008;background:#2a2040}
-.now{text-align:center;font-size:1.1rem;margin:14px 0}.bar{height:6px;background:#333;border-radius:3px;cursor:pointer}.fill{height:100%;width:0;background:#b388ff;border-radius:3px}
-.t{display:flex;justify-content:space-between;font-size:.8rem;opacity:.7;margin-top:4px}.c{display:flex;justify-content:center;gap:20px;margin:16px 0;align-items:center}
+<style>html,body{height:100%}body{margin:0;font-family:system-ui,sans-serif;background:#120c1f;color:#fff;display:flex;justify-content:center;overflow:hidden}
+.w{width:100%;max-width:480px;padding:12px 16px 0;box-sizing:border-box;height:100vh;height:100dvh;display:flex;flex-direction:column}.top{flex:none;position:relative}h1{font-size:1.2rem;text-align:center;letter-spacing:2px;margin:4px 0 10px}#own{position:absolute;right:0;top:0;width:36px;height:36px;font-size:1rem;background:none;opacity:.6}h1 span{color:#b388ff}
+.big{display:block;margin:0 auto;height:min(34vh,320px);aspect-ratio:1;object-fit:cover;border-radius:16px;box-shadow:0 10px 40px #0008;background:#2a2040}
+.now{text-align:center;font-size:1.05rem;margin:10px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bar{height:6px;background:#333;border-radius:3px;cursor:pointer}.fill{height:100%;width:0;background:#b388ff;border-radius:3px}
+.t{display:flex;justify-content:space-between;font-size:.8rem;opacity:.7;margin-top:4px}.c{display:flex;justify-content:center;gap:20px;margin:10px 0;align-items:center}
 button{background:#2a2040;color:#fff;border:0;border-radius:50%;width:56px;height:56px;font-size:1.3rem;cursor:pointer}button.p{width:68px;height:68px;background:#7c4dff}
-ul{list-style:none;padding:0}li{display:flex;align-items:center;gap:12px;padding:8px;border-radius:10px;cursor:pointer}li:hover{background:#ffffff10}li.a{background:#7c4dff40}
+ul{list-style:none;padding:0 0 24px;margin:6px 0 0;flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}li{display:flex;align-items:center;gap:12px;padding:8px;border-radius:10px;cursor:pointer}li:hover{background:#ffffff10}li.a{background:#7c4dff40}
 li span.n{flex:1}.st,.dot{background:none;width:44px;height:44px;flex:none;font-size:1.1rem;border-radius:50%;padding:0}.st{color:#666}.st.on{color:#ffd54f}.dot::after{content:'';display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid #666}.dot.m1::after{background:#4caf50;border-color:#4caf50}.dot.m2::after{background:#ffc107;border-color:#ffc107}.dot.m3::after{background:#f44336;border-color:#f44336}
-.f{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.f input{flex:1 1 100%;padding:10px;border-radius:10px;border:0;background:#2a2040;color:#fff}.ch{width:auto;height:32px;border-radius:16px;padding:0 12px;font-size:.9rem}.ch.on{background:#7c4dff}.ch i{display:inline-block;width:12px;height:12px;border-radius:50%}
+.f{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0}.f::-webkit-scrollbar{display:none}.f .ch{flex:none;white-space:nowrap}.ch{width:auto;height:32px;border-radius:16px;padding:0 12px;font-size:.9rem}.ch.on{background:#7c4dff}.ch i{display:inline-block;width:12px;height:12px;border-radius:50%}
 li a.dl{color:#b388ff;text-decoration:none;width:44px;height:44px;line-height:44px;text-align:center;font-size:1.3rem;flex:none}
-li{gap:4px}li span.n{min-width:0;overflow:hidden;text-overflow:ellipsis}.ch{height:44px;border-radius:22px;padding:0 16px}.ch i{width:16px;height:16px}
+li{gap:4px}li span.n{min-width:0;overflow:hidden;text-overflow:ellipsis}.ch{height:36px;border-radius:18px;padding:0 12px;font-size:.85rem}.ch i{width:14px;height:14px;vertical-align:middle}.ed{background:none;width:36px;height:36px;font-size:1rem;flex:none;display:none}body.owner .ed{display:inline-block}
 #ios{display:none;background:#1e1530;border-radius:12px;padding:8px;margin-top:8px}#ios a{display:block;padding:14px;color:#fff;background:#2a2040;border-radius:10px;margin:6px 0;text-decoration:none}
-@media(max-width:420px){.w{padding:14px}li img{width:40px;height:40px}}
-li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head><body><div class="w"><h1><span>RG-SOUND</span></h1>
+@media(max-width:420px){.w{padding:8px 10px 0}.big{height:min(30vh,260px)}button{width:48px;height:48px}button.p{width:58px;height:58px}li img{width:40px;height:40px}}
+li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head><body><div class="w"><div class="top"><h1><span>RG-SOUND</span></h1><button id="own" title="Режим владельца">⚙</button>
 <img class="big" id="big" src="cover.svg" alt=""><div class="now" id="now">Загрузка…</div>
 <div class="bar" id="bar"><div class="fill" id="fill"></div></div><div class="t"><span id="cur">0:00</span><span id="dur">0:00</span></div>
-<div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div><div class="f"><input id="q" placeholder="Поиск…"><button class="ch" id="rf">↻ Обновить песни</button><button class="ch" data-f="fav">★ Избранное</button><button class="ch" data-f="1"><i style="background:#4caf50"></i></button><button class="ch" data-f="2"><i style="background:#ffc107"></i></button><button class="ch" data-f="3"><i style="background:#f44336"></i></button></div><button class="ch" id="zip" style="margin-top:8px;width:100%">⬇ Скачать выбранное</button><div class="f" id="gen"></div><div id="ios"></div><ul id="list"></ul></div>
+<div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div>
+<div class="f" id="chips"><button class="ch" id="rf">↻ Обновить песни</button><button class="ch" data-f="fav">★ Избранное</button><button class="ch" data-f="1"><i style="background:#4caf50"></i></button><button class="ch" data-f="2"><i style="background:#ffc107"></i></button><button class="ch" data-f="3"><i style="background:#f44336"></i></button><span id="gen" style="display:contents"></span><button class="ch" id="zip">⬇ Скачать выбранное</button></div><div id="ios"></div></div>
+<ul id="list"></ul></div>
 <div id="toast" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#7c4dff;padding:12px 18px;border-radius:22px;opacity:0;transition:opacity .3s;pointer-events:none">.</div><audio id="au" preload="metadata"></audio>
 <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
 <script>
@@ -26,7 +28,7 @@ const au=document.getElementById('au'),$=i=>document.getElementById(i);let T=[],
 const base=n=>n.replace(/\.[^.]+$/,''),enc=p=>p.split('/').map(encodeURIComponent).join('/');
 async function viaApi(){const r=await fetch(`https://api.github.com/repos/${REPO}/git/trees/main?recursive=1&t=${Date.now()}`,{cache:'no-store'});if(!r.ok)throw 0;
  const tr=(await r.json()).tree.filter(x=>x.type==='blob'),m={};tr.filter(x=>I.test(x.path)&&/^(covers|audio)\//.test(x.path)).forEach(x=>m[base(x.path.split('/').pop())]??=x.path);
- const L=tr.filter(x=>/^audio\//.test(x.path)&&A.test(x.path)).map(x=>{const p=x.path.split('/'),n=p.pop();return{file:x.path,title:base(n).replace(/_/g,' '),genre:p.length>1?p[1]:'',cover:m[base(n)]||null}});
+ const L=tr.filter(x=>/^audio\//.test(x.path)&&A.test(x.path)).map(x=>{const p=x.path.split('/'),n=p.pop();return{sha:x.sha,file:x.path,title:base(n).replace(/_/g,' '),genre:p.length>1?p[1]:'',cover:m[base(n)]||null}});
  if(!L.length)throw 0;return L.sort((a,b)=>a.file.localeCompare(b.file,'ru'))}
 async function getJson(){const r=await fetch('tracks.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;return r.json()}
 function setT(N){const cur=T[i]&&T[i].file,old=new Set(T.map(t=>t.file)),add=N.filter(t=>!old.has(t.file)).length;
@@ -42,8 +44,8 @@ function genres(){const g=$('gen'),gs=[...new Set(T.map(t=>t.genre||'Без жа
  [...F.g].forEach(x=>{if(!gs.includes(x))F.g.delete(x)});g.innerHTML='';if(gs.length<2)return;
  gs.forEach(x=>{const b=document.createElement('button');b.className='ch'+(F.g.has(x)?' on':'');b.textContent=x;b.onclick=()=>{F.g.has(x)?F.g.delete(x):F.g.add(x);b.classList.toggle('on');filt()};g.appendChild(b)})}
 function cov(t){return t.cover?enc(t.cover):(t.art||DEF)}
-function render(){const L=$('list');L.innerHTML='';T.forEach((t,k)=>{const li=document.createElement('li');li.innerHTML='<img alt=""><span class="n"></span><button class="st">★</button><button class="dot"></button><a class="dl" title="Скачать">⬇</a>';
- li.querySelector('img').src=cov(t);li.querySelector('span').textContent=t.title;deco(li,t);const a=li.querySelector('.dl');a.href=enc(t.file);a.download=t.file.split('/').pop();a.onclick=e=>e.stopPropagation();li.querySelector('.st').onclick=e=>{e.stopPropagation();S.fav[t.file]=!S.fav[t.file];save();deco(li,t);filt()};li.querySelector('.dot').onclick=e=>{e.stopPropagation();S.mark[t.file]=((S.mark[t.file]||0)+1)%4;save();deco(li,t);filt()};li.onclick=()=>{load(k);au.play()};L.appendChild(li);if(!t.cover&&!t.art)art(t,k)});mark();filt()}
+function render(){const L=$('list');L.innerHTML='';T.forEach((t,k)=>{const li=document.createElement('li');li.innerHTML='<img alt=""><span class="n"></span><button class="st">★</button><button class="dot"></button><a class="dl" title="Скачать">⬇</a><button class="ed rn" title="Переименовать">✎</button><button class="ed del" title="Удалить">🗑</button>';
+ li.querySelector('img').src=cov(t);li.querySelector('span').textContent=t.title;deco(li,t);const a=li.querySelector('.dl');a.href=enc(t.file);a.download=t.file.split('/').pop();a.onclick=e=>e.stopPropagation();li.querySelector('.st').onclick=e=>{e.stopPropagation();S.fav[t.file]=!S.fav[t.file];save();deco(li,t);filt()};li.querySelector('.dot').onclick=e=>{e.stopPropagation();S.mark[t.file]=((S.mark[t.file]||0)+1)%4;save();deco(li,t);filt()};li.querySelector('.rn').onclick=e=>{e.stopPropagation();renameT(t)};li.querySelector('.del').onclick=e=>{e.stopPropagation();deleteT(t)};li.onclick=()=>{load(k);au.play()};L.appendChild(li);if(!t.cover&&!t.art)art(t,k)});mark();filt()}
 function art(t,k){if(!window.jsmediatags||!/\.(mp3|m4a)$/i.test(t.file))return;
  jsmediatags.read(new URL(enc(t.file),location.href).href,{onSuccess:r=>{const p=r.tags.picture;if(!p)return;
   t.art=URL.createObjectURL(new Blob([new Uint8Array(p.data)],{type:p.format}));const im=$('list').children[k]?.querySelector('img');if(im)im.src=t.art;if(k===i)show()},onError:()=>{}})}
@@ -51,10 +53,10 @@ function art(t,k){if(!window.jsmediatags||!/\.(mp3|m4a)$/i.test(t.file))return;
 const S=Object.assign({fav:{},mark:{}},JSON.parse(localStorage.getItem('rgsound')||'{}')),F={fav:false,m:new Set(),g:new Set()};
 const save=()=>localStorage.setItem('rgsound',JSON.stringify(S));
 function deco(li,t){li.querySelector('.st').classList.toggle('on',!!S.fav[t.file]);li.querySelector('.dot').className='dot m'+(S.mark[t.file]||0)}
-const ok=t=>{const q=$('q').value.trim().toLowerCase();return(!q||t.title.toLowerCase().includes(q))&&(!F.fav||S.fav[t.file])&&(!F.m.size||F.m.has(S.mark[t.file]||0))&&(!F.g.size||F.g.has(t.genre||'Без жанра'))};
+const ok=t=>{return (!F.fav||S.fav[t.file])&&(!F.m.size||F.m.has(S.mark[t.file]||0))&&(!F.g.size||F.g.has(t.genre||'Без жанра'))};
 function filt(){[...$('list').children].forEach((li,k)=>li.style.display=ok(T[k])?'':'none')}
 function step(d){for(let n=1;n<=T.length;n++){const k=((i+d*n)%T.length+T.length)%T.length;if(ok(T[k]))return k}return i+d}
-$('q').oninput=filt;document.querySelectorAll('.ch').forEach(b=>b.onclick=()=>{const f=b.dataset.f;if(f==='fav')F.fav=!F.fav;else{const m=+f;F.m.has(m)?F.m.delete(m):F.m.add(m)}b.classList.toggle('on');filt()});
+document.querySelectorAll('.ch[data-f]').forEach(b=>b.onclick=()=>{const f=b.dataset.f;if(f==='fav')F.fav=!F.fav;else{const m=+f;F.m.has(m)?F.m.delete(m):F.m.add(m)}b.classList.toggle('on');filt()});
 function mark(){[...$('list').children].forEach((li,k)=>li.classList.toggle('a',k===i))}
 function show(){const t=T[i];$('big').src=cov(t);$('now').textContent=t.title;
  if('mediaSession'in navigator){const s=new URL(cov(t),location.href).href;navigator.mediaSession.metadata=new MediaMetadata({title:t.title,artist:'RAMIL GR',album:"RG-SOUND",artwork:[{src:s,sizes:'512x512'}]})}}
@@ -73,6 +75,33 @@ $('zip').onclick=async()=>{const b=$('zip'),L=T.filter(ok);if(!L.length||b.disab
  for(let k=0;k<L.length;k++){b.textContent=`Скачивание ${k+1}/${L.length}…`;const a=document.createElement('a');a.href=enc(L[k].file);a.download=L[k].file.split('/').pop();
   document.body.appendChild(a);a.click();a.remove();await new Promise(r=>setTimeout(r,400))}
  b.disabled=false;b.textContent='⬇ Скачать выбранное'};
+// Режим владельца: токен GitHub хранится только в этом браузере
+const TK=()=>localStorage.getItem('rgsound_token');
+function owner(){document.body.classList.toggle('owner',!!TK())}
+$('own').onclick=()=>{if(TK()){if(confirm('Выйти из режима владельца (удалить токен из браузера)?')){localStorage.removeItem('rgsound_token');owner()}return}
+ const t=prompt('GitHub токен (fine-grained, репозиторий sound-ai-player, Contents: Read and write). Хранится только в этом браузере.');if(t&&t.trim()){localStorage.setItem('rgsound_token',t.trim());owner();refresh(false)}};
+async function gh(p,o={}){const r=await fetch('https://api.github.com/repos/'+REPO+p,{...o,headers:{Authorization:'Bearer '+TK(),Accept:'application/vnd.github+json'},cache:'no-store'});
+ if(!r.ok)throw new Error(r.status+' '+(await r.text()).slice(0,120));return r.json()}
+async function commit(changes,msg){ // changes: [{path, sha|null}] ; then tracks.json regenerated
+ const ref=await gh('/git/ref/heads/main'),c=await gh('/git/commits/'+ref.object.sha),tr=(await gh(`/git/trees/${c.tree.sha}?recursive=1`)).tree;
+ const blobs=new Map(tr.filter(x=>x.type==='blob').map(x=>[x.path,x.sha]));changes.forEach(ch=>ch.sha?blobs.set(ch.path,ch.sha):blobs.delete(ch.path));
+ const paths=[...blobs.keys()],m={};paths.filter(p=>I.test(p)&&/^(covers|audio)\//.test(p)).forEach(p=>m[base(p.split('/').pop())]??=p);
+ const list=paths.filter(p=>/^audio\//.test(p)&&A.test(p)).sort((a,b)=>a.localeCompare(b,'ru')).map(p=>{const q=p.split('/'),n=q.pop();return{file:p,title:base(n).replace(/_/g,' '),genre:q.length>1?q[1]:'',cover:m[base(n)]||null}});
+ const tree=changes.map(ch=>({path:ch.path,mode:'100644',type:'blob',sha:ch.sha})).concat([{path:'tracks.json',mode:'100644',type:'blob',content:JSON.stringify(list,null,1)}]);
+ const nt=await gh('/git/trees',{method:'POST',body:JSON.stringify({base_tree:c.tree.sha,tree})});
+ const nc=await gh('/git/commits',{method:'POST',body:JSON.stringify({message:msg,tree:nt.sha,parents:[c.sha]})});
+ await gh('/git/refs/heads/main',{method:'PATCH',body:JSON.stringify({sha:nc.sha})});return list}
+function shaOf(p){return gh('/contents/'+enc(p)+'?ref=main').then(x=>x.sha)}
+async function renameT(t){const old=base(t.file.split('/').pop()),n=prompt('Новое название трека:',old);if(!n||n.trim()===old)return;const nn=n.trim().replace(/[\/\\]/g,'-');
+ const dir=t.file.slice(0,t.file.lastIndexOf('/')+1),ext=t.file.slice(t.file.lastIndexOf('.'));try{toast('Сохраняю…');
+  const ch=[{path:dir+nn+ext,sha:t.sha||await shaOf(t.file)},{path:t.file,sha:null}];
+  if(t.cover&&base(t.cover.split('/').pop())===old){const cd=t.cover.slice(0,t.cover.lastIndexOf('/')+1),ce=t.cover.slice(t.cover.lastIndexOf('.'));ch.push({path:cd+nn+ce,sha:await shaOf(t.cover)},{path:t.cover,sha:null})}
+  for(const k of['fav','mark'])if(S[k][t.file]){S[k][dir+nn+ext]=S[k][t.file];delete S[k][t.file]}save();
+  const L=await commit(ch,'Rename '+old+' → '+nn);const cur=T[i]&&T[i].file===t.file;setT(L);if(cur){const k=T.findIndex(x=>x.file===dir+nn+ext);if(k>=0){i=k;show();mark()}}toast('Переименовано. На сайте через 1–2 мин')}catch(e){alert('Ошибка: '+e.message)}}
+async function deleteT(t){if(!confirm('Удалить «'+t.title+'» из плеера навсегда?'))return;try{toast('Удаляю…');
+  const ch=[{path:t.file,sha:null}];if(t.cover&&base(t.cover.split('/').pop())===base(t.file.split('/').pop()))ch.push({path:t.cover,sha:null});
+  const L=await commit(ch,'Delete '+t.title);setT(L);toast('Удалено')}catch(e){alert('Ошибка: '+e.message)}}
+owner();
 $('rf').onclick=()=>refresh(true);
 init();
 </script></body></html>
