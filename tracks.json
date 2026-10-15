@@ -6,16 +6,16 @@
   "cover": "covers/50-02_парень.jpg"
  },
  {
+  "file": "audio/Авылым дуэт.mp3",
+  "title": "Авылым дуэт",
+  "genre": "",
+  "cover": "covers/Авылым дуэт.jpg"
+ },
+ {
   "file": "audio/Блендер трам пампам.mp3",
   "title": "Блендер трам пампам",
   "genre": "",
   "cover": "covers/Блендер трам пампам.jpg"
- },
- {
-  "file": "audio/Газиз авылым (1).mp3",
-  "title": "Газиз авылым (1)",
-  "genre": "",
-  "cover": "covers/Газиз авылым (1).jpg"
  },
  {
   "file": "audio/Газиз авылым (2).mp3",
