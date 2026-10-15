@@ -1,5 +1,5 @@
 <!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RAMIL GR — Sound_AI</title><link rel="icon" href="cover.svg">
+<title>RG-SOUND</title><link rel="icon" href="cover.svg">
 <style>body{margin:0;font-family:system-ui,sans-serif;background:#120c1f;color:#fff;display:flex;justify-content:center}
 .w{width:100%;max-width:480px;padding:24px;box-sizing:border-box}h1{font-size:1.4rem;text-align:center;letter-spacing:2px}h1 span{color:#b388ff}
 .big{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px;box-shadow:0 10px 40px #0008;background:#2a2040}
@@ -7,7 +7,7 @@
 .t{display:flex;justify-content:space-between;font-size:.8rem;opacity:.7;margin-top:4px}.c{display:flex;justify-content:center;gap:20px;margin:16px 0;align-items:center}
 button{background:#2a2040;color:#fff;border:0;border-radius:50%;width:56px;height:56px;font-size:1.3rem;cursor:pointer}button.p{width:68px;height:68px;background:#7c4dff}
 ul{list-style:none;padding:0}li{display:flex;align-items:center;gap:12px;padding:8px;border-radius:10px;cursor:pointer}li:hover{background:#ffffff10}li.a{background:#7c4dff40}
-li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head><body><div class="w"><h1>RAMIL GR — <span>Sound_AI</span></h1>
+li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head><body><div class="w"><h1><span>RG-SOUND</span></h1>
 <img class="big" id="big" src="cover.svg" alt=""><div class="now" id="now">Загрузка…</div>
 <div class="bar" id="bar"><div class="fill" id="fill"></div></div><div class="t"><span id="cur">0:00</span><span id="dur">0:00</span></div>
 <div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div><ul id="list"></ul></div>
@@ -34,7 +34,7 @@ function art(t,k){if(!window.jsmediatags||!/\.(mp3|m4a)$/i.test(t.file))return;
   t.art=URL.createObjectURL(new Blob([new Uint8Array(p.data)],{type:p.format}));const im=$('list').children[k]?.querySelector('img');if(im)im.src=t.art;if(k===i)show()},onError:()=>{}})}
 function mark(){[...$('list').children].forEach((li,k)=>li.classList.toggle('a',k===i))}
 function show(){const t=T[i];$('big').src=cov(t);$('now').textContent=t.title;
- if('mediaSession'in navigator){const s=new URL(cov(t),location.href).href;navigator.mediaSession.metadata=new MediaMetadata({title:t.title,artist:'RAMIL GR',album:'Sound_AI',artwork:[{src:s,sizes:'512x512'}]})}}
+ if('mediaSession'in navigator){const s=new URL(cov(t),location.href).href;navigator.mediaSession.metadata=new MediaMetadata({title:t.title,artist:'RAMIL GR',album:"RG-SOUND",artwork:[{src:s,sizes:'512x512'}]})}}
 function load(k){i=(k+T.length)%T.length;au.src=enc(T[i].file);show();mark()}
 $('play').onclick=()=>au.paused?au.play():au.pause();au.onplay=()=>$('play').textContent='⏸';au.onpause=()=>$('play').textContent='▶';
 $('next').onclick=()=>{load(i+1);au.play()};$('prev').onclick=()=>{load(i-1);au.play()};au.onended=()=>{load(i+1);au.play()};
