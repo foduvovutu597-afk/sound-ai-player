@@ -9,12 +9,14 @@ button{background:#2a2040;color:#fff;border:0;border-radius:50%;width:56px;heigh
 ul{list-style:none;padding:0}li{display:flex;align-items:center;gap:12px;padding:8px;border-radius:10px;cursor:pointer}li:hover{background:#ffffff10}li.a{background:#7c4dff40}
 li span.n{flex:1}.st,.dot{background:none;width:30px;height:30px;font-size:1.1rem;border-radius:50%;padding:0}.st{color:#666}.st.on{color:#ffd54f}.dot::after{content:'';display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid #666}.dot.m1::after{background:#4caf50;border-color:#4caf50}.dot.m2::after{background:#ffc107;border-color:#ffc107}.dot.m3::after{background:#f44336;border-color:#f44336}
 .f{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.f input{flex:1 1 100%;padding:10px;border-radius:10px;border:0;background:#2a2040;color:#fff}.ch{width:auto;height:32px;border-radius:16px;padding:0 12px;font-size:.9rem}.ch.on{background:#7c4dff}.ch i{display:inline-block;width:12px;height:12px;border-radius:50%}
+li a.dl{color:#b388ff;text-decoration:none;width:28px;text-align:center}
 li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head><body><div class="w"><h1><span>RG-SOUND</span></h1>
 <img class="big" id="big" src="cover.svg" alt=""><div class="now" id="now">Загрузка…</div>
 <div class="bar" id="bar"><div class="fill" id="fill"></div></div><div class="t"><span id="cur">0:00</span><span id="dur">0:00</span></div>
-<div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div><div class="f"><input id="q" placeholder="Поиск…"><button class="ch" data-f="fav">★ Избранное</button><button class="ch" data-f="1"><i style="background:#4caf50"></i></button><button class="ch" data-f="2"><i style="background:#ffc107"></i></button><button class="ch" data-f="3"><i style="background:#f44336"></i></button></div><ul id="list"></ul></div>
+<div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div><div class="f"><input id="q" placeholder="Поиск…"><button class="ch" data-f="fav">★ Избранное</button><button class="ch" data-f="1"><i style="background:#4caf50"></i></button><button class="ch" data-f="2"><i style="background:#ffc107"></i></button><button class="ch" data-f="3"><i style="background:#f44336"></i></button></div><button class="ch" id="zip" style="margin-top:8px;width:100%">⬇ Скачать выбранное (ZIP)</button><ul id="list"></ul></div>
 <audio id="au" preload="metadata"></audio>
 <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script>
 // Треки берутся автоматически из папки audio/, обложки — из covers/ (то же имя файла). Код править не нужно.
 const REPO='foduvovutu597-afk/sound-ai-player',DEF='cover.svg',A=/\.(mp3|m4a|wav|ogg|flac)$/i,I=/\.(jpe?g|png|webp)$/i;
@@ -30,7 +32,7 @@ async function init(){try{const r=await fetch('tracks.json?'+Date.now());if(!r.o
  render();if(T.length)load(0,false)}
 function cov(t){return t.cover?enc(t.cover):(t.art||DEF)}
 function render(){const L=$('list');L.innerHTML='';T.forEach((t,k)=>{const li=document.createElement('li');li.innerHTML='<img alt=""><span class="n"></span><button class="st">★</button><button class="dot"></button>';
- li.querySelector('img').src=cov(t);li.querySelector('span').textContent=t.title;deco(li,t);li.querySelector('.st').onclick=e=>{e.stopPropagation();S.fav[t.file]=!S.fav[t.file];save();deco(li,t);filt()};li.querySelector('.dot').onclick=e=>{e.stopPropagation();S.mark[t.file]=((S.mark[t.file]||0)+1)%4;save();deco(li,t);filt()};li.onclick=()=>{load(k);au.play()};L.appendChild(li);if(!t.cover&&!t.art)art(t,k)});mark();filt()}
+ li.querySelector('img').src=cov(t);li.querySelector('span').textContent=t.title;deco(li,t);const a=li.querySelector('.dl');a.href=enc(t.file);a.download=t.file.split('/').pop();a.onclick=e=>e.stopPropagation();li.querySelector('.st').onclick=e=>{e.stopPropagation();S.fav[t.file]=!S.fav[t.file];save();deco(li,t);filt()};li.querySelector('.dot').onclick=e=>{e.stopPropagation();S.mark[t.file]=((S.mark[t.file]||0)+1)%4;save();deco(li,t);filt()};li.onclick=()=>{load(k);au.play()};L.appendChild(li);if(!t.cover&&!t.art)art(t,k)});mark();filt()}
 function art(t,k){if(!window.jsmediatags||!/\.(mp3|m4a)$/i.test(t.file))return;
  jsmediatags.read(new URL(enc(t.file),location.href).href,{onSuccess:r=>{const p=r.tags.picture;if(!p)return;
   t.art=URL.createObjectURL(new Blob([new Uint8Array(p.data)],{type:p.format}));const im=$('list').children[k]?.querySelector('img');if(im)im.src=t.art;if(k===i)show()},onError:()=>{}})}
@@ -52,5 +54,13 @@ const fmt=s=>isNaN(s)?'0:00':Math.floor(s/60)+':'+String(Math.floor(s%60)).padSt
 au.ontimeupdate=()=>{$('fill').style.width=(au.currentTime/au.duration*100||0)+'%';$('cur').textContent=fmt(au.currentTime);$('dur').textContent=fmt(au.duration)};
 $('bar').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration};
 if('mediaSession'in navigator){navigator.mediaSession.setActionHandler('nexttrack',()=>$('next').onclick());navigator.mediaSession.setActionHandler('previoustrack',()=>$('prev').onclick())}
+function fname(){const p=[];if(F.fav)p.push('Izbrannoe');const c={1:'green',2:'yellow',3:'red'};[...F.m].sort().forEach(m=>p.push(c[m]));const q=$('q').value.trim();if(q)p.push(q);
+ return 'RG-SOUND_'+(p.join('_')||'all').replace(/[\\/:*?"<>|\s]+/g,'-')+'.zip'}
+$('zip').onclick=async()=>{const b=$('zip'),L=T.filter(ok);if(!L.length||b.disabled)return;if(!window.JSZip){alert('Не загрузился JSZip');return}
+ b.disabled=true;const z=new JSZip();try{for(let k=0;k<L.length;k++){b.textContent=`Загрузка ${k+1}/${L.length}…`;
+  const r=await fetch(enc(L[k].file));z.file(L[k].file.split('/').pop(),await r.blob(),{binary:true})}
+  const blob=await z.generateAsync({type:'blob',compression:'STORE'},m=>b.textContent=`Упаковка ${Math.round(m.percent)}%`);
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname();a.click();setTimeout(()=>URL.revokeObjectURL(a.href),6e4)}
+ catch(e){alert('Ошибка скачивания')}b.disabled=false;b.textContent='⬇ Скачать выбранное (ZIP)'};
 init();
 </script></body></html>
