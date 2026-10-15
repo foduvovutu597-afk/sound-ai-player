@@ -18,7 +18,7 @@ const TRACKS=[
  {title:"Трек 54471",id:"1GaL9IPRzAYzyC0AC8-PZTNbEiNa4YYSe"},
  {title:"Трек 68798",id:"1cq2ytIdQdAEZuQXsP8SnTAJYLtlNncJr"},
 ];
-const src=id=>`https://drive.usercontent.google.com/download?id=${id}&export=download`;
+const src=id=>`audio/${id}.m4a`;
 const au=document.getElementById('au'),$=i=>document.getElementById(i);let i=0;
 const fmt=s=>isFinite(s)?Math.floor(s/60)+":"+String(Math.floor(s%60)).padStart(2,"0"):"0:00";
 TRACKS.forEach((t,k)=>{const li=document.createElement('li');li.textContent=t.title;li.onclick=()=>{load(k);au.play()};$('list').appendChild(li)});
