@@ -132,16 +132,16 @@
   "cover": "covers/тат авылым хор.jpg"
  },
  {
+  "file": "audio/тат Төнге җилләр.mp3",
+  "title": "тат Төнге җилләр",
+  "genre": "",
+  "cover": "covers/тат Төнге җилләр.jpg"
+ },
+ {
   "file": "audio/Тихий рай дуэт.mp3",
   "title": "Тихий рай дуэт",
   "genre": "",
   "cover": "covers/Тихий рай дуэт.jpg"
- },
- {
-  "file": "audio/Төнге җилләр (1).mp3",
-  "title": "Төнге җилләр (1)",
-  "genre": "",
-  "cover": "covers/Төнге җилләр (1).jpg"
  },
  {
   "file": "audio/Төнге җилләр.mp3",
