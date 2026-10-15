@@ -84,6 +84,12 @@
   "cover": "covers/мандибуля банжо.jpg"
  },
  {
+  "file": "audio/мандибуля басы.mp3",
+  "title": "мандибуля басы",
+  "genre": "",
+  "cover": "covers/мандибуля басы.jpg"
+ },
+ {
   "file": "audio/мандибуля гитара.mp3",
   "title": "мандибуля гитара",
   "genre": "",
@@ -202,12 +208,6 @@
   "title": "трамтам скрипка гармошка",
   "genre": "",
   "cover": "covers/трамтам скрипка гармошка.jpg"
- },
- {
-  "file": "audio/Banjo_mandipulz_08.mp3",
-  "title": "Banjo mandipulz 08",
-  "genre": "",
-  "cover": "covers/Banjo_mandipulz_08.jpg"
  },
  {
   "file": "audio/Banjo_rave_van.mp3",
