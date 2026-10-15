@@ -96,6 +96,12 @@
   "cover": "covers/мандибуля тихо флейта.jpg"
  },
  {
+  "file": "audio/мандибуля шепот эхо.mp3",
+  "title": "мандибуля шепот эхо",
+  "genre": "",
+  "cover": "covers/мандибуля шепот эхо.jpg"
+ },
+ {
   "file": "audio/мандибуля шепот.mp3",
   "title": "мандибуля шепот",
   "genre": "",
@@ -196,12 +202,6 @@
   "title": "трамтам скрипка гармошка",
   "genre": "",
   "cover": "covers/трамтам скрипка гармошка.jpg"
- },
- {
-  "file": "audio/Banjo_mandipulz_06.mp3",
-  "title": "Banjo mandipulz 06",
-  "genre": "",
-  "cover": "covers/Banjo_mandipulz_06.jpg"
  },
  {
   "file": "audio/Banjo_mandipulz_07.mp3",
