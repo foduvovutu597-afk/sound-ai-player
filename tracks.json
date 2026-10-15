@@ -1,182 +1,104 @@
 [
  {
-  "file": "audio/02. тамтарм.mp3",
-  "title": "02. тамтарм",
+  "file": "audio/50-02_парень.mp3",
+  "title": "50-02 парень",
   "genre": "",
-  "cover": "covers/02. тамтарм.jpg"
+  "cover": "covers/50-02_парень.jpg"
  },
  {
-  "file": "audio/03. тамтарм.mp3",
-  "title": "03. тамтарм",
+  "file": "audio/Nocturnal Montage.mp3",
+  "title": "Nocturnal Montage",
   "genre": "",
-  "cover": "covers/03. тамтарм.jpg"
+  "cover": "covers/Nocturnal Montage.jpg"
  },
  {
-  "file": "audio/04. тамтарм.mp3",
-  "title": "04. тамтарм",
+  "file": "audio/Nocturnal Montage02.mp3",
+  "title": "Nocturnal Montage02",
   "genre": "",
-  "cover": "covers/04. тамтарм.jpg"
+  "cover": "covers/Nocturnal Montage02.jpg"
  },
  {
-  "file": "audio/05. тамтарм.mp3",
-  "title": "05. тамтарм",
+  "file": "audio/Nocturnal Montage03.mp3",
+  "title": "Nocturnal Montage03",
   "genre": "",
-  "cover": "covers/05. тамтарм.jpg"
+  "cover": "covers/Nocturnal Montage03.jpg"
  },
  {
-  "file": "audio/Bard - Авторская песня/Зин, ты помнишь (6).mp3",
-  "title": "Зин, ты помнишь (6)",
-  "genre": "Bard - Авторская песня",
-  "cover": null
+  "file": "audio/Nocturnal Montage04.mp3",
+  "title": "Nocturnal Montage04",
+  "genre": "",
+  "cover": "covers/Nocturnal Montage04.jpg"
  },
  {
-  "file": "audio/Bard - Авторская песня/Зин, ты помнишь (7).mp3",
-  "title": "Зин, ты помнишь (7)",
-  "genre": "Bard - Авторская песня",
-  "cover": null
+  "file": "audio/Nocturnal Montage05.mp3",
+  "title": "Nocturnal Montage05",
+  "genre": "",
+  "cover": "covers/Nocturnal Montage05.jpg"
  },
  {
-  "file": "audio/Gospel/Зин, ты помнишь (9).mp3",
-  "title": "Зин, ты помнишь (9)",
-  "genre": "Gospel",
-  "cover": "covers/Зин, ты помнишь (9).jpg"
+  "file": "audio/Nocturnal Montage06.mp3",
+  "title": "Nocturnal Montage06",
+  "genre": "",
+  "cover": "covers/Nocturnal Montage06.jpg"
  },
  {
-  "file": "audio/New age/Зин, ты помнишь (2).mp3",
-  "title": "Зин, ты помнишь (2)",
-  "genre": "New age",
-  "cover": "covers/Зин, ты помнишь (2).jpg"
+  "file": "audio/Nocturnal Montage07.mp3",
+  "title": "Nocturnal Montage07",
+  "genre": "",
+  "cover": "covers/Nocturnal Montage07.jpg"
  },
  {
-  "file": "audio/New age/Зин, ты помнишь (3).mp3",
-  "title": "Зин, ты помнишь (3)",
-  "genre": "New age",
-  "cover": "covers/Зин, ты помнишь (3).jpg"
+  "file": "audio/Nocturnal Montage08.mp3",
+  "title": "Nocturnal Montage08",
+  "genre": "",
+  "cover": "covers/Nocturnal Montage08.jpg"
  },
  {
-  "file": "audio/New age/rec.mp3",
-  "title": "rec",
-  "genre": "New age",
-  "cover": "covers/rec.jpg"
+  "file": "audio/Nocturnal Montage09.mp3",
+  "title": "Nocturnal Montage09",
+  "genre": "",
+  "cover": "covers/Nocturnal Montage09.jpg"
  },
  {
-  "file": "audio/Pop/Зин, ты помнишь (1).mp3",
-  "title": "Зин, ты помнишь (1)",
-  "genre": "Pop",
-  "cover": "covers/Зин, ты помнишь (1).jpg"
+  "file": "audio/Nocturnal Montage10.mp3",
+  "title": "Nocturnal Montage10",
+  "genre": "",
+  "cover": "covers/Nocturnal Montage10.jpg"
  },
  {
-  "file": "audio/Pop/Зин, ты помнишь (4).mp3",
-  "title": "Зин, ты помнишь (4)",
-  "genre": "Pop",
-  "cover": "covers/Зин, ты помнишь (4).jpg"
+  "file": "audio/Wobble Drive_Gitar.mp3",
+  "title": "Wobble Drive Gitar",
+  "genre": "",
+  "cover": "covers/Wobble Drive_Gitar.jpg"
  },
  {
-  "file": "audio/Pop/Зин, ты помнишь космос.mp3",
-  "title": "Зин, ты помнишь космос",
-  "genre": "Pop",
-  "cover": "covers/Зин, ты помнишь космос.jpg"
+  "file": "audio/Wobble Drive_Wiman_Irland_01.mp3",
+  "title": "Wobble Drive Wiman Irland 01",
+  "genre": "",
+  "cover": "covers/Wobble Drive_Wiman_Irland_01.jpg"
  },
  {
-  "file": "audio/Pop/Зин, ты помнишь.mp3",
-  "title": "Зин, ты помнишь",
-  "genre": "Pop",
-  "cover": "covers/Зин, ты помнишь.jpg"
+  "file": "audio/Wobble Drive_Wiman_Irland_02.mp3",
+  "title": "Wobble Drive Wiman Irland 02",
+  "genre": "",
+  "cover": "covers/Wobble Drive_Wiman_Irland_02.jpg"
  },
  {
-  "file": "audio/Pop/трам01.mp3",
-  "title": "трам01",
-  "genre": "Pop",
-  "cover": "covers/трам01.jpg"
+  "file": "audio/Wobble Drive_Wiman_Irland_03.mp3",
+  "title": "Wobble Drive Wiman Irland 03",
+  "genre": "",
+  "cover": "covers/Wobble Drive_Wiman_Irland_03.jpg"
  },
  {
-  "file": "audio/Romance - Романс/Зин, ты помнишь (10).mp3",
-  "title": "Зин, ты помнишь (10)",
-  "genre": "Romance - Романс",
-  "cover": "covers/Зин, ты помнишь (10).jpg"
+  "file": "audio/Wobble Drive_Wiman_Irland_04.mp3",
+  "title": "Wobble Drive Wiman Irland 04",
+  "genre": "",
+  "cover": "covers/Wobble Drive_Wiman_Irland_04.jpg"
  },
  {
-  "file": "audio/Romance - Романс/Зин, ты помнишь (11).mp3",
-  "title": "Зин, ты помнишь (11)",
-  "genre": "Romance - Романс",
-  "cover": "covers/Зин, ты помнишь (11).jpg"
- },
- {
-  "file": "audio/Romance - Романс/Зин, ты помнишь (12).mp3",
-  "title": "Зин, ты помнишь (12)",
-  "genre": "Romance - Романс",
-  "cover": "covers/Зин, ты помнишь (12).jpg"
- },
- {
-  "file": "audio/Romance - Романс/Зин, ты помнишь (8).mp3",
-  "title": "Зин, ты помнишь (8)",
-  "genre": "Romance - Романс",
-  "cover": null
- },
- {
-  "file": "audio/Romance - Романс/rec (2).mp3",
-  "title": "rec (2)",
-  "genre": "Romance - Романс",
-  "cover": "covers/rec (2).jpg"
- },
- {
-  "file": "audio/Romance - Романс/rec (5).mp3",
-  "title": "rec (5)",
-  "genre": "Romance - Романс",
-  "cover": "covers/rec (5).jpg"
- },
- {
-  "file": "audio/Romance - Романс/rec (6).mp3",
-  "title": "rec (6)",
-  "genre": "Romance - Романс",
-  "cover": "covers/rec (6).jpg"
- },
- {
-  "file": "audio/Soul/rec (3).mp3",
-  "title": "rec (3)",
-  "genre": "Soul",
-  "cover": "covers/rec (3).jpg"
- },
- {
-  "file": "audio/Soundtrack/rec (4).mp3",
-  "title": "rec (4)",
-  "genre": "Soundtrack",
-  "cover": "covers/rec (4).jpg"
- },
- {
-  "file": "audio/Soundtrack/rec (Instrumental).mp3",
-  "title": "rec (Instrumental)",
-  "genre": "Soundtrack",
-  "cover": null
- },
- {
-  "file": "audio/Trance/трам02.mp3",
-  "title": "трам02",
-  "genre": "Trance",
-  "cover": "covers/трам02.jpg"
- },
- {
-  "file": "audio/Trance/трам03.mp3",
-  "title": "трам03",
-  "genre": "Trance",
-  "cover": "covers/трам03.jpg"
- },
- {
-  "file": "audio/Trance/rec (Vocals).mp3",
-  "title": "rec (Vocals)",
-  "genre": "Trance",
-  "cover": null
- },
- {
-  "file": "audio/World/Зин, ты помнишь (5).mp3",
-  "title": "Зин, ты помнишь (5)",
-  "genre": "World",
-  "cover": "covers/Зин, ты помнишь (5).jpg"
- },
- {
-  "file": "audio/World/rec (1).mp3",
-  "title": "rec (1)",
-  "genre": "World",
-  "cover": "covers/rec (1).jpg"
+  "file": "audio/Wobble Drive_Wiman_Irland_05.mp3",
+  "title": "Wobble Drive Wiman Irland 05",
+  "genre": "",
+  "cover": "covers/Wobble Drive_Wiman_Irland_05.jpg"
  }
 ]
