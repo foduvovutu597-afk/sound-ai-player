@@ -1,5 +1,11 @@
 [
  {
+  "file": "audio/50-02_парень.mp3",
+  "title": "50-02 парень",
+  "genre": "",
+  "cover": "covers/50-02_парень.jpg"
+ },
+ {
   "file": "audio/Nocturnal Montage.mp3",
   "title": "Nocturnal Montage",
   "genre": "",
@@ -58,12 +64,6 @@
   "title": "Nocturnal Montage10",
   "genre": "",
   "cover": "covers/Nocturnal Montage10.jpg"
- },
- {
-  "file": "audio/Nocturnal Montage11.mp3",
-  "title": "Nocturnal Montage11",
-  "genre": "",
-  "cover": "covers/Nocturnal Montage11.jpg"
  },
  {
   "file": "audio/Wobble Drive_Gitar.mp3",
