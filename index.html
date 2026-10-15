@@ -26,7 +26,7 @@ li{gap:4px}li span.n{min-width:0;overflow:hidden;text-overflow:ellipsis}.ch{heig
 const REPO='foduvovutu597-afk/sound-ai-player',DEF='cover.svg',A=/\.(mp3|m4a|wav|ogg|flac)$/i,I=/\.(jpe?g|png|webp)$/i;
 const au=document.getElementById('au'),$=i=>document.getElementById(i);let T=[],i=0;
 const base=n=>n.replace(/\.[^.]+$/,''),enc=p=>p.split('/').map(encodeURIComponent).join('/');
-async function viaApi(){const r=await fetch(`https://api.github.com/repos/${REPO}/git/trees/main?recursive=1&t=${Date.now()}`,{cache:'no-store'});if(!r.ok)throw 0;
+async function viaApi(){const r=await fetch(`https://api.github.com/repos/${REPO}/git/trees/main?recursive=1&t=${Date.now()}`,{cache:'no-store',headers:TK()?{Authorization:'Bearer '+TK()}:{}});if(!r.ok)throw 0;
  const tr=(await r.json()).tree.filter(x=>x.type==='blob'),m={};tr.filter(x=>I.test(x.path)&&/^(covers|audio)\//.test(x.path)).forEach(x=>m[base(x.path.split('/').pop())]??=x.path);
  const L=tr.filter(x=>/^audio\//.test(x.path)&&A.test(x.path)).map(x=>{const p=x.path.split('/'),n=p.pop();return{sha:x.sha,file:x.path,title:base(n).replace(/_/g,' '),genre:p.length>1?p[1]:'',cover:m[base(n)]||null}});
  if(!L.length)throw 0;return L.sort((a,b)=>a.file.localeCompare(b.file,'ru'))}
@@ -46,9 +46,24 @@ function genres(){const g=$('gen'),gs=[...new Set(T.map(t=>t.genre||'Без жа
 function cov(t){return t.cover?enc(t.cover):(t.art||DEF)}
 function render(){const L=$('list');L.innerHTML='';T.forEach((t,k)=>{const li=document.createElement('li');li.innerHTML='<img alt=""><span class="n"></span><button class="st">★</button><button class="dot"></button><a class="dl" title="Скачать">⬇</a><button class="ed rn" title="Переименовать">✎</button><button class="ed del" title="Удалить">🗑</button>';
  li.querySelector('img').src=cov(t);li.querySelector('span').textContent=t.title;deco(li,t);const a=li.querySelector('.dl');a.href=enc(t.file);a.download=t.file.split('/').pop();a.onclick=e=>e.stopPropagation();li.querySelector('.st').onclick=e=>{e.stopPropagation();S.fav[t.file]=!S.fav[t.file];save();deco(li,t);filt()};li.querySelector('.dot').onclick=e=>{e.stopPropagation();S.mark[t.file]=((S.mark[t.file]||0)+1)%4;save();deco(li,t);filt()};li.querySelector('.rn').onclick=e=>{e.stopPropagation();renameT(t)};li.querySelector('.del').onclick=e=>{e.stopPropagation();deleteT(t)};li.onclick=()=>{load(k);au.play()};L.appendChild(li);if(!t.cover&&!t.art)art(t,k)});mark();filt()}
-function art(t,k){if(!window.jsmediatags||!/\.(mp3|m4a)$/i.test(t.file))return;
- jsmediatags.read(new URL(enc(t.file),location.href).href,{onSuccess:r=>{const p=r.tags.picture;if(!p)return;
-  t.art=URL.createObjectURL(new Blob([new Uint8Array(p.data)],{type:p.format}));const im=$('list').children[k]?.querySelector('img');if(im)im.src=t.art;if(k===i)show()},onError:()=>{}})}
+// Обложка из mp3: свой парсер ID3v2 (APIC/PIC) через Range-запрос, запасной вариант — jsmediatags
+async function id3pic(url){const h=new Uint8Array(await (await fetch(url,{headers:{Range:'bytes=0-9'}})).arrayBuffer());
+ if(h[0]!==73||h[1]!==68||h[2]!==51)return null;const v=h[3],sz=((h[6]&127)<<21)|((h[7]&127)<<14)|((h[8]&127)<<7)|(h[9]&127);
+ let b=new Uint8Array(await (await fetch(url,{headers:{Range:'bytes=0-'+(sz+9)}})).arrayBuffer());if(b.length>sz+10)b=b.subarray(0,sz+10);
+ const s=(o,n)=>String.fromCharCode(...b.subarray(o,o+n));let p=10;if(v>2&&(h[5]&64))p+=v===4?((b[10]&127)<<21|(b[11]&127)<<14|(b[12]&127)<<7|(b[13]&127)):(b[10]<<24|b[11]<<16|b[12]<<8|b[13])+4;
+ while(p+10<b.length){const id=s(p,v===2?3:4);if(!/^[A-Z0-9]{3,4}$/.test(id))break;let n,hl;
+  if(v===2){n=b[p+3]<<16|b[p+4]<<8|b[p+5];hl=6}else{n=v===4?((b[p+4]&127)<<21|(b[p+5]&127)<<14|(b[p+6]&127)<<7|(b[p+7]&127)):(b[p+4]<<24|b[p+5]<<16|b[p+6]<<8|b[p+7]);hl=10}
+  if(id==='APIC'||id==='PIC'){const f=b.subarray(p+hl,p+hl+n),e=f[0];let q=1,mime;
+   if(id==='PIC'){mime='image/'+(s(p+hl+1,3).toLowerCase()==='png'?'png':'jpeg');q=4}else{while(f[q])q++;mime=String.fromCharCode(...f.subarray(1,q))||'image/jpeg';q++}
+   q++;if(e===1||e===2){while(q<f.length-1&&(f[q]||f[q+1]))q+=2;q+=2}else{while(q<f.length&&f[q])q++;q++}
+   if(!mime.includes('/'))mime='image/'+(mime.toLowerCase()==='png'?'png':'jpeg');return new Blob([f.subarray(q)],{type:mime})}
+  p+=hl+n}return null}
+function jmt(url){return new Promise(r=>{if(!window.jsmediatags)return r(null);jsmediatags.read(url,{onSuccess:x=>{const p=x.tags.picture;r(p?new Blob([new Uint8Array(p.data)],{type:p.format}):null)},onError:()=>r(null)})})}
+async function getArt(t){if(!/\.(mp3|m4a)$/i.test(t.file))return null;const u=new URL(enc(t.file),location.href).href;let bl=null;
+ if(/\.mp3$/i.test(t.file))try{bl=await id3pic(u)}catch(e){}return bl||jmt(u)}
+let artQ=Promise.resolve();
+function art(t,k){artQ=artQ.then(async()=>{if(t.art)return;const bl=await getArt(t);if(!bl)return;t.art=URL.createObjectURL(bl);
+ const li=$('list').children,j=T.indexOf(t);const im=j>=0&&li[j]?.querySelector('img');if(im)im.src=t.art;if(j===i)show()}).catch(()=>{})}
 // Избранное и цветные метки хранятся у каждого слушателя в браузере (localStorage)
 const S=Object.assign({fav:{},mark:{}},JSON.parse(localStorage.getItem('rgsound')||'{}')),F={fav:false,m:new Set(),g:new Set()};
 const save=()=>localStorage.setItem('rgsound',JSON.stringify(S));
@@ -105,8 +120,8 @@ function manual(){const t=prompt('GitHub токен (fine-grained, репози�
 function showQR(){const url=location.origin+location.pathname+'#owner='+encodeURIComponent(TK());const q=qrcode(0,'L');q.addData(url);q.make();
  modal('<b>📱 Наведи камеру телефона</b>'+q.createSvgTag({cellSize:4,margin:4,scalable:true}).replace('<svg','<svg style="background:#fff;width:100%;height:auto;border-radius:8px"')+'<small>В QR-коде твой ключ — никому не показывай. На телефоне попросит придумать PIN.</small><button onclick="this.closest(\'div[style]\').parentNode.remove()">Закрыть</button>')}
 $('own').onclick=async()=>{
- if(TK()){const o=modal('<b>Режим владельца</b><button id="mq">📱 QR для телефона</button>'+(localStorage.getItem('rgsound_token')?'<button id="mp">🔒 Защитить PIN-кодом</button>':'')+'<button id="ml">Выйти (удалить токен)</button><button id="mc">Закрыть</button>');
-  o.querySelector('#mq').onclick=()=>{o.remove();showQR()};o.querySelector('#mc').onclick=()=>o.remove();
+ if(TK()){const o=modal('<b>Режим владельца</b><button id="mq">📱 QR для телефона</button><button id="mv">🖼 Обложки из mp3</button>'+(localStorage.getItem('rgsound_token')?'<button id="mp">🔒 Защитить PIN-кодом</button>':'')+'<button id="ml">Выйти (удалить токен)</button><button id="mc">Закрыть</button>');
+  o.querySelector('#mv').onclick=()=>{o.remove();coversFromMp3()};o.querySelector('#mq').onclick=()=>{o.remove();showQR()};o.querySelector('#mc').onclick=()=>o.remove();
   const mp=o.querySelector('#mp');if(mp)mp.onclick=async()=>{o.remove();const t=TK();if(await setPin(t)){unlock(t);toast('Токен защищён PIN')}};
   o.querySelector('#ml').onclick=()=>{if(confirm('Выйти и удалить токен из этого браузера?')){logout();o.remove()}};return}
  if(localStorage.getItem(EK)){for(;;){const a=await askPin('Введи PIN владельца','<button id="pm">Вставить токен вручную</button><button id="px">Забыть токен</button>');
@@ -134,6 +149,19 @@ async function renameT(t){const old=base(t.file.split('/').pop()),n=prompt('Но
   if(t.cover&&base(t.cover.split('/').pop())===old){const cd=t.cover.slice(0,t.cover.lastIndexOf('/')+1),ce=t.cover.slice(t.cover.lastIndexOf('.'));ch.push({path:cd+nn+ce,sha:await shaOf(t.cover)},{path:t.cover,sha:null})}
   for(const k of['fav','mark'])if(S[k][t.file]){S[k][dir+nn+ext]=S[k][t.file];delete S[k][t.file]}save();
   const L=await commit(ch,'Rename '+old+' → '+nn);const cur=T[i]&&T[i].file===t.file;setT(L);if(cur){const k=T.findIndex(x=>x.file===dir+nn+ext);if(k>=0){i=k;show();mark()}}toast('Переименовано. На сайте через 1–2 мин')}catch(e){alert('Ошибка: '+e.message)}}
+function jpeg500(bl){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>{const k=Math.min(1,500/Math.max(im.width,im.height)),c=document.createElement('canvas');
+ c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(im.src);c.toBlob(b=>b?res(b):rej(),'image/jpeg',.85)};im.onerror=rej;im.src=URL.createObjectURL(bl)})}
+const b64blob=bl=>new Promise(r=>{const f=new FileReader();f.onload=()=>r(f.result.split(',')[1]);f.readAsDataURL(bl)});
+async function coversFromMp3(){const need=T.filter(t=>!(t.cover&&/^covers\//.test(t.cover))&&/\.(mp3|m4a)$/i.test(t.file));
+ if(!need.length){alert('У всех треков уже есть обложки в covers/');return}
+ const o=modal('<b>🖼 Обложки из mp3</b><div id="cp">Готовлю…</div>');const P=o.querySelector('#cp'),ch=[];let n=0,none=0;
+ try{for(const t of need){n++;P.textContent=`Читаю ${n} из ${need.length}: ${t.title}`;const bl=await getArt(t);if(!bl){none++;continue}
+   const j=await jpeg500(bl).catch(()=>bl),r=await gh('/git/blobs',{method:'POST',body:JSON.stringify({content:await b64blob(j),encoding:'base64'})});
+   ch.push({path:'covers/'+base(t.file.split('/').pop())+'.jpg',sha:r.sha})}
+  if(!ch.length){P.textContent='В mp3 не нашлось встроенных обложек ('+none+')';}
+  else{P.textContent='Сохраняю на GitHub…';const L=await commit(ch,'Covers from mp3 ('+ch.length+')');setT(L);P.textContent=`Готово: добавлено обложек ${ch.length}`+(none?`, без обложки в mp3: ${none}`:'')+'. На сайте через 1–2 мин.'}}
+ catch(e){P.textContent='Ошибка: '+e.message}
+ o.querySelector('div').insertAdjacentHTML('beforeend','<button onclick="this.closest(\'.mdl\').parentNode.remove()">Закрыть</button>')}
 async function deleteT(t){if(!confirm('Удалить «'+t.title+'» из плеера навсегда?'))return;try{toast('Удаляю…');
   const ch=[{path:t.file,sha:null}];if(t.cover&&base(t.cover.split('/').pop())===base(t.file.split('/').pop()))ch.push({path:t.cover,sha:null});
   const L=await commit(ch,'Delete '+t.title);setT(L);toast('Удалено')}catch(e){alert('Ошибка: '+e.message)}}
