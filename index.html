@@ -16,33 +16,42 @@ li{gap:4px}li span.n{min-width:0;overflow:hidden;text-overflow:ellipsis}.ch{heig
 li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head><body><div class="w"><h1><span>RG-SOUND</span></h1>
 <img class="big" id="big" src="cover.svg" alt=""><div class="now" id="now">Загрузка…</div>
 <div class="bar" id="bar"><div class="fill" id="fill"></div></div><div class="t"><span id="cur">0:00</span><span id="dur">0:00</span></div>
-<div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div><div class="f"><input id="q" placeholder="Поиск…"><button class="ch" data-f="fav">★ Избранное</button><button class="ch" data-f="1"><i style="background:#4caf50"></i></button><button class="ch" data-f="2"><i style="background:#ffc107"></i></button><button class="ch" data-f="3"><i style="background:#f44336"></i></button></div><button class="ch" id="zip" style="margin-top:8px;width:100%">⬇ Скачать выбранное</button><div id="ios"></div><ul id="list"></ul></div>
-<audio id="au" preload="metadata"></audio>
+<div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div><div class="f"><input id="q" placeholder="Поиск…"><button class="ch" id="rf">↻ Обновить песни</button><button class="ch" data-f="fav">★ Избранное</button><button class="ch" data-f="1"><i style="background:#4caf50"></i></button><button class="ch" data-f="2"><i style="background:#ffc107"></i></button><button class="ch" data-f="3"><i style="background:#f44336"></i></button></div><button class="ch" id="zip" style="margin-top:8px;width:100%">⬇ Скачать выбранное</button><div class="f" id="gen"></div><div id="ios"></div><ul id="list"></ul></div>
+<div id="toast" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#7c4dff;padding:12px 18px;border-radius:22px;opacity:0;transition:opacity .3s;pointer-events:none">.</div><audio id="au" preload="metadata"></audio>
 <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
 <script>
 // Треки берутся автоматически из папки audio/, обложки — из covers/ (то же имя файла). Код править не нужно.
 const REPO='foduvovutu597-afk/sound-ai-player',DEF='cover.svg',A=/\.(mp3|m4a|wav|ogg|flac)$/i,I=/\.(jpe?g|png|webp)$/i;
 const au=document.getElementById('au'),$=i=>document.getElementById(i);let T=[],i=0;
 const base=n=>n.replace(/\.[^.]+$/,''),enc=p=>p.split('/').map(encodeURIComponent).join('/');
-async function viaApi(){const g=async d=>{const r=await fetch(`https://api.github.com/repos/${REPO}/contents/${d}`);return r.ok?r.json():[]};
- const [au_,cv]=await Promise.all([g('audio'),g('covers')]);if(!Array.isArray(au_)||!au_.length)throw 0;const m={};
- [...au_,...(Array.isArray(cv)?cv:[])].filter(f=>I.test(f.name)).forEach(f=>m[base(f.name)]??=f.path);
- return au_.filter(f=>A.test(f.name)).sort((a,b)=>a.name.localeCompare(b.name,'ru')).map(f=>({file:f.path,title:base(f.name).replace(/_/g,' '),cover:m[base(f.name)]||null}))}
-async function init(){try{const r=await fetch('tracks.json?'+Date.now());if(!r.ok)throw 0;T=await r.json();
-  // если в API больше файлов (Action ещё не отработал) — берём API
-  viaApi().then(a=>{if(a.length!==T.length){T=a;render()}}).catch(()=>{})}catch(e){try{T=await viaApi()}catch(e){$('now').textContent='Не удалось загрузить список';return}}
- render();if(T.length)load(0,false)}
+async function viaApi(){const r=await fetch(`https://api.github.com/repos/${REPO}/git/trees/main?recursive=1&t=${Date.now()}`,{cache:'no-store'});if(!r.ok)throw 0;
+ const tr=(await r.json()).tree.filter(x=>x.type==='blob'),m={};tr.filter(x=>I.test(x.path)&&/^(covers|audio)\//.test(x.path)).forEach(x=>m[base(x.path.split('/').pop())]??=x.path);
+ const L=tr.filter(x=>/^audio\//.test(x.path)&&A.test(x.path)).map(x=>{const p=x.path.split('/'),n=p.pop();return{file:x.path,title:base(n).replace(/_/g,' '),genre:p.length>1?p[1]:'',cover:m[base(n)]||null}});
+ if(!L.length)throw 0;return L.sort((a,b)=>a.file.localeCompare(b.file,'ru'))}
+async function getJson(){const r=await fetch('tracks.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;return r.json()}
+function setT(N){const cur=T[i]&&T[i].file,old=new Set(T.map(t=>t.file)),add=N.filter(t=>!old.has(t.file)).length;
+ N.forEach(t=>{const o=T.find(x=>x.file===t.file);if(o&&o.art)t.art=o.art});T=N;const k=T.findIndex(t=>t.file===cur);i=k<0?0:k;genres();render();return add}
+function toast(m){const d=$('toast');d.textContent=m;d.style.opacity=1;clearTimeout(d._t);d._t=setTimeout(()=>d.style.opacity=0,2500)}
+async function refresh(user){const b=$('rf');b.disabled=true;let N=null;
+ try{N=await viaApi()}catch(e){try{N=await getJson()}catch(e){}}b.disabled=false;
+ if(!N){if(user)toast('Не удалось обновить список');return false}
+ const first=!T.length,add=setT(N);if(user)toast(`Найдено ${T.length} треков (+${add} новых)`);if(first&&T.length&&!au.src)load(0);return true}
+async function init(){try{setT(await getJson());if(T.length)load(0)}catch(e){}
+ const ok=await refresh(false);if(!ok&&!T.length)$('now').textContent='Не удалось загрузить список'}
+function genres(){const g=$('gen'),gs=[...new Set(T.map(t=>t.genre||'Без жанра'))].sort((a,b)=>(a==='Без жанра')-(b==='Без жанра')||a.localeCompare(b));
+ [...F.g].forEach(x=>{if(!gs.includes(x))F.g.delete(x)});g.innerHTML='';if(gs.length<2)return;
+ gs.forEach(x=>{const b=document.createElement('button');b.className='ch'+(F.g.has(x)?' on':'');b.textContent=x;b.onclick=()=>{F.g.has(x)?F.g.delete(x):F.g.add(x);b.classList.toggle('on');filt()};g.appendChild(b)})}
 function cov(t){return t.cover?enc(t.cover):(t.art||DEF)}
-function render(){const L=$('list');L.innerHTML='';T.forEach((t,k)=>{const li=document.createElement('li');li.innerHTML='<img alt=""><span class="n"></span><button class="st">★</button><button class="dot"></button>';
+function render(){const L=$('list');L.innerHTML='';T.forEach((t,k)=>{const li=document.createElement('li');li.innerHTML='<img alt=""><span class="n"></span><button class="st">★</button><button class="dot"></button><a class="dl" title="Скачать">⬇</a>';
  li.querySelector('img').src=cov(t);li.querySelector('span').textContent=t.title;deco(li,t);const a=li.querySelector('.dl');a.href=enc(t.file);a.download=t.file.split('/').pop();a.onclick=e=>e.stopPropagation();li.querySelector('.st').onclick=e=>{e.stopPropagation();S.fav[t.file]=!S.fav[t.file];save();deco(li,t);filt()};li.querySelector('.dot').onclick=e=>{e.stopPropagation();S.mark[t.file]=((S.mark[t.file]||0)+1)%4;save();deco(li,t);filt()};li.onclick=()=>{load(k);au.play()};L.appendChild(li);if(!t.cover&&!t.art)art(t,k)});mark();filt()}
 function art(t,k){if(!window.jsmediatags||!/\.(mp3|m4a)$/i.test(t.file))return;
  jsmediatags.read(new URL(enc(t.file),location.href).href,{onSuccess:r=>{const p=r.tags.picture;if(!p)return;
   t.art=URL.createObjectURL(new Blob([new Uint8Array(p.data)],{type:p.format}));const im=$('list').children[k]?.querySelector('img');if(im)im.src=t.art;if(k===i)show()},onError:()=>{}})}
 // Избранное и цветные метки хранятся у каждого слушателя в браузере (localStorage)
-const S=Object.assign({fav:{},mark:{}},JSON.parse(localStorage.getItem('rgsound')||'{}')),F={fav:false,m:new Set()};
+const S=Object.assign({fav:{},mark:{}},JSON.parse(localStorage.getItem('rgsound')||'{}')),F={fav:false,m:new Set(),g:new Set()};
 const save=()=>localStorage.setItem('rgsound',JSON.stringify(S));
 function deco(li,t){li.querySelector('.st').classList.toggle('on',!!S.fav[t.file]);li.querySelector('.dot').className='dot m'+(S.mark[t.file]||0)}
-const ok=t=>{const q=$('q').value.trim().toLowerCase();return(!q||t.title.toLowerCase().includes(q))&&(!F.fav||S.fav[t.file])&&(!F.m.size||F.m.has(S.mark[t.file]||0))};
+const ok=t=>{const q=$('q').value.trim().toLowerCase();return(!q||t.title.toLowerCase().includes(q))&&(!F.fav||S.fav[t.file])&&(!F.m.size||F.m.has(S.mark[t.file]||0))&&(!F.g.size||F.g.has(t.genre||'Без жанра'))};
 function filt(){[...$('list').children].forEach((li,k)=>li.style.display=ok(T[k])?'':'none')}
 function step(d){for(let n=1;n<=T.length;n++){const k=((i+d*n)%T.length+T.length)%T.length;if(ok(T[k]))return k}return i+d}
 $('q').oninput=filt;document.querySelectorAll('.ch').forEach(b=>b.onclick=()=>{const f=b.dataset.f;if(f==='fav')F.fav=!F.fav;else{const m=+f;F.m.has(m)?F.m.delete(m):F.m.add(m)}b.classList.toggle('on');filt()});
@@ -64,5 +73,6 @@ $('zip').onclick=async()=>{const b=$('zip'),L=T.filter(ok);if(!L.length||b.disab
  for(let k=0;k<L.length;k++){b.textContent=`Скачивание ${k+1}/${L.length}…`;const a=document.createElement('a');a.href=enc(L[k].file);a.download=L[k].file.split('/').pop();
   document.body.appendChild(a);a.click();a.remove();await new Promise(r=>setTimeout(r,400))}
  b.disabled=false;b.textContent='⬇ Скачать выбранное'};
+$('rf').onclick=()=>refresh(true);
 init();
 </script></body></html>
