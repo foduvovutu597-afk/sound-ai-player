@@ -78,6 +78,12 @@
   "cover": "covers/Зин, ты помнишь космос.jpg"
  },
  {
+  "file": "audio/мандибуля банжо.mp3",
+  "title": "мандибуля банжо",
+  "genre": "",
+  "cover": "covers/мандибуля банжо.jpg"
+ },
+ {
   "file": "audio/Почка за токены рай.mp3",
   "title": "Почка за токены рай",
   "genre": "",
@@ -172,12 +178,6 @@
   "title": "трамтам скрипка гармошка",
   "genre": "",
   "cover": "covers/трамтам скрипка гармошка.jpg"
- },
- {
-  "file": "audio/Banjo_mandipulz_01.mp3",
-  "title": "Banjo mandipulz 01",
-  "genre": "",
-  "cover": "covers/Banjo_mandipulz_01.jpg"
  },
  {
   "file": "audio/Banjo_mandipulz_02.mp3",
