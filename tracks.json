@@ -1,9 +1,9 @@
 [
  {
-  "file": "audio/01. тамтарм.mp3",
-  "title": "01. тамтарм",
+  "file": "audio/01_трамтамтам.mp3",
+  "title": "01 трамтамтам",
   "genre": "",
-  "cover": "covers/01. тамтарм.jpg"
+  "cover": "covers/01_трамтамтам.jpg"
  },
  {
   "file": "audio/02. тамтарм.mp3",
@@ -48,12 +48,6 @@
   "cover": "covers/Зин, ты помнишь (9).jpg"
  },
  {
-  "file": "audio/New age/rec.mp3",
-  "title": "rec",
-  "genre": "New age",
-  "cover": "covers/rec.jpg"
- },
- {
   "file": "audio/New age/Зин, ты помнишь (2).mp3",
   "title": "Зин, ты помнишь (2)",
   "genre": "New age",
@@ -64,6 +58,12 @@
   "title": "Зин, ты помнишь (3)",
   "genre": "New age",
   "cover": "covers/Зин, ты помнишь (3).jpg"
+ },
+ {
+  "file": "audio/New age/rec.mp3",
+  "title": "rec",
+  "genre": "New age",
+  "cover": "covers/rec.jpg"
  },
  {
   "file": "audio/Pop/Зин, ты помнишь (1).mp3",
@@ -96,24 +96,6 @@
   "cover": "covers/трам01.jpg"
  },
  {
-  "file": "audio/Romance - Романс/rec (2).mp3",
-  "title": "rec (2)",
-  "genre": "Romance - Романс",
-  "cover": "covers/rec (2).jpg"
- },
- {
-  "file": "audio/Romance - Романс/rec (5).mp3",
-  "title": "rec (5)",
-  "genre": "Romance - Романс",
-  "cover": "covers/rec (5).jpg"
- },
- {
-  "file": "audio/Romance - Романс/rec (6).mp3",
-  "title": "rec (6)",
-  "genre": "Romance - Романс",
-  "cover": "covers/rec (6).jpg"
- },
- {
   "file": "audio/Romance - Романс/Зин, ты помнишь (10).mp3",
   "title": "Зин, ты помнишь (10)",
   "genre": "Romance - Романс",
@@ -138,6 +120,24 @@
   "cover": null
  },
  {
+  "file": "audio/Romance - Романс/rec (2).mp3",
+  "title": "rec (2)",
+  "genre": "Romance - Романс",
+  "cover": "covers/rec (2).jpg"
+ },
+ {
+  "file": "audio/Romance - Романс/rec (5).mp3",
+  "title": "rec (5)",
+  "genre": "Romance - Романс",
+  "cover": "covers/rec (5).jpg"
+ },
+ {
+  "file": "audio/Romance - Романс/rec (6).mp3",
+  "title": "rec (6)",
+  "genre": "Romance - Романс",
+  "cover": "covers/rec (6).jpg"
+ },
+ {
   "file": "audio/Soul/rec (3).mp3",
   "title": "rec (3)",
   "genre": "Soul",
@@ -156,12 +156,6 @@
   "cover": null
  },
  {
-  "file": "audio/Trance/rec (Vocals).mp3",
-  "title": "rec (Vocals)",
-  "genre": "Trance",
-  "cover": null
- },
- {
   "file": "audio/Trance/трам02.mp3",
   "title": "трам02",
   "genre": "Trance",
@@ -174,15 +168,21 @@
   "cover": "covers/трам03.jpg"
  },
  {
-  "file": "audio/World/rec (1).mp3",
-  "title": "rec (1)",
-  "genre": "World",
-  "cover": "covers/rec (1).jpg"
+  "file": "audio/Trance/rec (Vocals).mp3",
+  "title": "rec (Vocals)",
+  "genre": "Trance",
+  "cover": null
  },
  {
   "file": "audio/World/Зин, ты помнишь (5).mp3",
   "title": "Зин, ты помнишь (5)",
   "genre": "World",
   "cover": "covers/Зин, ты помнишь (5).jpg"
+ },
+ {
+  "file": "audio/World/rec (1).mp3",
+  "title": "rec (1)",
+  "genre": "World",
+  "cover": "covers/rec (1).jpg"
  }
 ]
