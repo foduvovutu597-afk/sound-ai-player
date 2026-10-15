@@ -7,10 +7,12 @@
 .t{display:flex;justify-content:space-between;font-size:.8rem;opacity:.7;margin-top:4px}.c{display:flex;justify-content:center;gap:20px;margin:16px 0;align-items:center}
 button{background:#2a2040;color:#fff;border:0;border-radius:50%;width:56px;height:56px;font-size:1.3rem;cursor:pointer}button.p{width:68px;height:68px;background:#7c4dff}
 ul{list-style:none;padding:0}li{display:flex;align-items:center;gap:12px;padding:8px;border-radius:10px;cursor:pointer}li:hover{background:#ffffff10}li.a{background:#7c4dff40}
+li span.n{flex:1}.st,.dot{background:none;width:30px;height:30px;font-size:1.1rem;border-radius:50%;padding:0}.st{color:#666}.st.on{color:#ffd54f}.dot::after{content:'';display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid #666}.dot.m1::after{background:#4caf50;border-color:#4caf50}.dot.m2::after{background:#ffc107;border-color:#ffc107}.dot.m3::after{background:#f44336;border-color:#f44336}
+.f{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.f input{flex:1 1 100%;padding:10px;border-radius:10px;border:0;background:#2a2040;color:#fff}.ch{width:auto;height:32px;border-radius:16px;padding:0 12px;font-size:.9rem}.ch.on{background:#7c4dff}.ch i{display:inline-block;width:12px;height:12px;border-radius:50%}
 li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head><body><div class="w"><h1><span>RG-SOUND</span></h1>
 <img class="big" id="big" src="cover.svg" alt=""><div class="now" id="now">Загрузка…</div>
 <div class="bar" id="bar"><div class="fill" id="fill"></div></div><div class="t"><span id="cur">0:00</span><span id="dur">0:00</span></div>
-<div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div><ul id="list"></ul></div>
+<div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div><div class="f"><input id="q" placeholder="Поиск…"><button class="ch" data-f="fav">★ Избранное</button><button class="ch" data-f="1"><i style="background:#4caf50"></i></button><button class="ch" data-f="2"><i style="background:#ffc107"></i></button><button class="ch" data-f="3"><i style="background:#f44336"></i></button></div><ul id="list"></ul></div>
 <audio id="au" preload="metadata"></audio>
 <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
 <script>
@@ -27,17 +29,25 @@ async function init(){try{const r=await fetch('tracks.json?'+Date.now());if(!r.o
   viaApi().then(a=>{if(a.length!==T.length){T=a;render()}}).catch(()=>{})}catch(e){try{T=await viaApi()}catch(e){$('now').textContent='Не удалось загрузить список';return}}
  render();if(T.length)load(0,false)}
 function cov(t){return t.cover?enc(t.cover):(t.art||DEF)}
-function render(){const L=$('list');L.innerHTML='';T.forEach((t,k)=>{const li=document.createElement('li');li.innerHTML='<img alt=""><span></span>';
- li.querySelector('img').src=cov(t);li.querySelector('span').textContent=t.title;li.onclick=()=>{load(k);au.play()};L.appendChild(li);if(!t.cover&&!t.art)art(t,k)});mark()}
+function render(){const L=$('list');L.innerHTML='';T.forEach((t,k)=>{const li=document.createElement('li');li.innerHTML='<img alt=""><span class="n"></span><button class="st">★</button><button class="dot"></button>';
+ li.querySelector('img').src=cov(t);li.querySelector('span').textContent=t.title;deco(li,t);li.querySelector('.st').onclick=e=>{e.stopPropagation();S.fav[t.file]=!S.fav[t.file];save();deco(li,t);filt()};li.querySelector('.dot').onclick=e=>{e.stopPropagation();S.mark[t.file]=((S.mark[t.file]||0)+1)%4;save();deco(li,t);filt()};li.onclick=()=>{load(k);au.play()};L.appendChild(li);if(!t.cover&&!t.art)art(t,k)});mark();filt()}
 function art(t,k){if(!window.jsmediatags||!/\.(mp3|m4a)$/i.test(t.file))return;
  jsmediatags.read(new URL(enc(t.file),location.href).href,{onSuccess:r=>{const p=r.tags.picture;if(!p)return;
   t.art=URL.createObjectURL(new Blob([new Uint8Array(p.data)],{type:p.format}));const im=$('list').children[k]?.querySelector('img');if(im)im.src=t.art;if(k===i)show()},onError:()=>{}})}
+// Избранное и цветные метки хранятся у каждого слушателя в браузере (localStorage)
+const S=Object.assign({fav:{},mark:{}},JSON.parse(localStorage.getItem('rgsound')||'{}')),F={fav:false,m:new Set()};
+const save=()=>localStorage.setItem('rgsound',JSON.stringify(S));
+function deco(li,t){li.querySelector('.st').classList.toggle('on',!!S.fav[t.file]);li.querySelector('.dot').className='dot m'+(S.mark[t.file]||0)}
+const ok=t=>{const q=$('q').value.trim().toLowerCase();return(!q||t.title.toLowerCase().includes(q))&&(!F.fav||S.fav[t.file])&&(!F.m.size||F.m.has(S.mark[t.file]||0))};
+function filt(){[...$('list').children].forEach((li,k)=>li.style.display=ok(T[k])?'':'none')}
+function step(d){for(let n=1;n<=T.length;n++){const k=((i+d*n)%T.length+T.length)%T.length;if(ok(T[k]))return k}return i+d}
+$('q').oninput=filt;document.querySelectorAll('.ch').forEach(b=>b.onclick=()=>{const f=b.dataset.f;if(f==='fav')F.fav=!F.fav;else{const m=+f;F.m.has(m)?F.m.delete(m):F.m.add(m)}b.classList.toggle('on');filt()});
 function mark(){[...$('list').children].forEach((li,k)=>li.classList.toggle('a',k===i))}
 function show(){const t=T[i];$('big').src=cov(t);$('now').textContent=t.title;
  if('mediaSession'in navigator){const s=new URL(cov(t),location.href).href;navigator.mediaSession.metadata=new MediaMetadata({title:t.title,artist:'RAMIL GR',album:"RG-SOUND",artwork:[{src:s,sizes:'512x512'}]})}}
 function load(k){i=(k+T.length)%T.length;au.src=enc(T[i].file);show();mark()}
 $('play').onclick=()=>au.paused?au.play():au.pause();au.onplay=()=>$('play').textContent='⏸';au.onpause=()=>$('play').textContent='▶';
-$('next').onclick=()=>{load(i+1);au.play()};$('prev').onclick=()=>{load(i-1);au.play()};au.onended=()=>{load(i+1);au.play()};
+$('next').onclick=()=>{load(step(1));au.play()};$('prev').onclick=()=>{load(step(-1));au.play()};au.onended=()=>{load(step(1));au.play()};
 const fmt=s=>isNaN(s)?'0:00':Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
 au.ontimeupdate=()=>{$('fill').style.width=(au.currentTime/au.duration*100||0)+'%';$('cur').textContent=fmt(au.currentTime);$('dur').textContent=fmt(au.duration)};
 $('bar').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration};
