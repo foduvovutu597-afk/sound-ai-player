@@ -1,9 +1,351 @@
 [
  {
+  "file": "audio/01. тамтарм.mp3",
+  "title": "01. тамтарм",
+  "genre": "",
+  "cover": "covers/01. тамтарм.jpg"
+ },
+ {
+  "file": "audio/02. тамтарм.mp3",
+  "title": "02. тамтарм",
+  "genre": "",
+  "cover": "covers/02. тамтарм.jpg"
+ },
+ {
+  "file": "audio/03. тамтарм.mp3",
+  "title": "03. тамтарм",
+  "genre": "",
+  "cover": "covers/03. тамтарм.jpg"
+ },
+ {
+  "file": "audio/04. тамтарм.mp3",
+  "title": "04. тамтарм",
+  "genre": "",
+  "cover": "covers/04. тамтарм.jpg"
+ },
+ {
+  "file": "audio/05. тамтарм.mp3",
+  "title": "05. тамтарм",
+  "genre": "",
+  "cover": "covers/05. тамтарм.jpg"
+ },
+ {
   "file": "audio/50-02_парень.mp3",
   "title": "50-02 парень",
   "genre": "",
   "cover": "covers/50-02_парень.jpg"
+ },
+ {
+  "file": "audio/Газиз авылым (1).mp3",
+  "title": "Газиз авылым (1)",
+  "genre": "",
+  "cover": "covers/Газиз авылым (1).jpg"
+ },
+ {
+  "file": "audio/Газиз авылым (2).mp3",
+  "title": "Газиз авылым (2)",
+  "genre": "",
+  "cover": "covers/Газиз авылым (2).jpg"
+ },
+ {
+  "file": "audio/Газиз авылым.mp3",
+  "title": "Газиз авылым",
+  "genre": "",
+  "cover": "covers/Газиз авылым.jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь (1).mp3",
+  "title": "Зин, ты помнишь (1)",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь (1).jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь (10).mp3",
+  "title": "Зин, ты помнишь (10)",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь (10).jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь (11).mp3",
+  "title": "Зин, ты помнишь (11)",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь (11).jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь (12).mp3",
+  "title": "Зин, ты помнишь (12)",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь (12).jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь (2).mp3",
+  "title": "Зин, ты помнишь (2)",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь (2).jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь (3).mp3",
+  "title": "Зин, ты помнишь (3)",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь (3).jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь (4).mp3",
+  "title": "Зин, ты помнишь (4)",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь (4).jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь (5).mp3",
+  "title": "Зин, ты помнишь (5)",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь (5).jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь (6).mp3",
+  "title": "Зин, ты помнишь (6)",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Зин, ты помнишь (7).mp3",
+  "title": "Зин, ты помнишь (7)",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Зин, ты помнишь (8).mp3",
+  "title": "Зин, ты помнишь (8)",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Зин, ты помнишь (9).mp3",
+  "title": "Зин, ты помнишь (9)",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь (9).jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь космос.mp3",
+  "title": "Зин, ты помнишь космос",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь космос.jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь_.mp3",
+  "title": "Зин, ты помнишь ",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь_.jpg"
+ },
+ {
+  "file": "audio/Зин, ты помнишь.mp3",
+  "title": "Зин, ты помнишь",
+  "genre": "",
+  "cover": "covers/Зин, ты помнишь.jpg"
+ },
+ {
+  "file": "audio/Мой тихий рай (1).mp3",
+  "title": "Мой тихий рай (1)",
+  "genre": "",
+  "cover": "covers/Мой тихий рай (1).jpg"
+ },
+ {
+  "file": "audio/Мой тихий рай.mp3",
+  "title": "Мой тихий рай",
+  "genre": "",
+  "cover": "covers/Мой тихий рай.jpg"
+ },
+ {
+  "file": "audio/Почка за токены (1).mp3",
+  "title": "Почка за токены (1)",
+  "genre": "",
+  "cover": "covers/Почка за токены (1).jpg"
+ },
+ {
+  "file": "audio/Почка за токены.mp3",
+  "title": "Почка за токены",
+  "genre": "",
+  "cover": "covers/Почка за токены.jpg"
+ },
+ {
+  "file": "audio/пышинпей гитара.mp3",
+  "title": "пышинпей гитара",
+  "genre": "",
+  "cover": "covers/пышинпей гитара.jpg"
+ },
+ {
+  "file": "audio/пышинпей дуэт 01.mp3",
+  "title": "пышинпей дуэт 01",
+  "genre": "",
+  "cover": "covers/пышинпей дуэт 01.jpg"
+ },
+ {
+  "file": "audio/пышинпей дуэт 02.mp3",
+  "title": "пышинпей дуэт 02",
+  "genre": "",
+  "cover": "covers/пышинпей дуэт 02.jpg"
+ },
+ {
+  "file": "audio/пышинпей.mp3",
+  "title": "пышинпей",
+  "genre": "",
+  "cover": "covers/пышинпей.jpg"
+ },
+ {
+  "file": "audio/Төнге җилләр (1).mp3",
+  "title": "Төнге җилләр (1)",
+  "genre": "",
+  "cover": "covers/Төнге җилләр (1).jpg"
+ },
+ {
+  "file": "audio/Төнге җилләр.mp3",
+  "title": "Төнге җилләр",
+  "genre": "",
+  "cover": "covers/Төнге җилләр.jpg"
+ },
+ {
+  "file": "audio/трам01.mp3",
+  "title": "трам01",
+  "genre": "",
+  "cover": "covers/трам01.jpg"
+ },
+ {
+  "file": "audio/трам02.mp3",
+  "title": "трам02",
+  "genre": "",
+  "cover": "covers/трам02.jpg"
+ },
+ {
+  "file": "audio/трам03.mp3",
+  "title": "трам03",
+  "genre": "",
+  "cover": "covers/трам03.jpg"
+ },
+ {
+  "file": "audio/Туган Ягым.mp3",
+  "title": "Туган Ягым",
+  "genre": "",
+  "cover": "covers/Туган Ягым.jpg"
+ },
+ {
+  "file": "audio/Banjo_devuchrf_01.mp3",
+  "title": "Banjo devuchrf 01",
+  "genre": "",
+  "cover": "covers/Banjo_devuchrf_01.jpg"
+ },
+ {
+  "file": "audio/Banjo_mandipulz_01.mp3",
+  "title": "Banjo mandipulz 01",
+  "genre": "",
+  "cover": "covers/Banjo_mandipulz_01.jpg"
+ },
+ {
+  "file": "audio/Banjo_mandipulz_02.mp3",
+  "title": "Banjo mandipulz 02",
+  "genre": "",
+  "cover": "covers/Banjo_mandipulz_02.jpg"
+ },
+ {
+  "file": "audio/Banjo_mandipulz_03.mp3",
+  "title": "Banjo mandipulz 03",
+  "genre": "",
+  "cover": "covers/Banjo_mandipulz_03.jpg"
+ },
+ {
+  "file": "audio/Banjo_mandipulz_04.mp3",
+  "title": "Banjo mandipulz 04",
+  "genre": "",
+  "cover": "covers/Banjo_mandipulz_04.jpg"
+ },
+ {
+  "file": "audio/Banjo_mandipulz_05.mp3",
+  "title": "Banjo mandipulz 05",
+  "genre": "",
+  "cover": "covers/Banjo_mandipulz_05.jpg"
+ },
+ {
+  "file": "audio/Banjo_mandipulz_06.mp3",
+  "title": "Banjo mandipulz 06",
+  "genre": "",
+  "cover": "covers/Banjo_mandipulz_06.jpg"
+ },
+ {
+  "file": "audio/Banjo_mandipulz_07.mp3",
+  "title": "Banjo mandipulz 07",
+  "genre": "",
+  "cover": "covers/Banjo_mandipulz_07.jpg"
+ },
+ {
+  "file": "audio/Banjo_mandipulz_08.mp3",
+  "title": "Banjo mandipulz 08",
+  "genre": "",
+  "cover": "covers/Banjo_mandipulz_08.jpg"
+ },
+ {
+  "file": "audio/Banjo_rave_van.mp3",
+  "title": "Banjo rave van",
+  "genre": "",
+  "cover": "covers/Banjo_rave_van.jpg"
+ },
+ {
+  "file": "audio/Banjo_rave.mp3",
+  "title": "Banjo rave",
+  "genre": "",
+  "cover": "covers/Banjo_rave.jpg"
+ },
+ {
+  "file": "audio/Banjo_rus.mp3",
+  "title": "Banjo rus",
+  "genre": "",
+  "cover": "covers/Banjo_rus.jpg"
+ },
+ {
+  "file": "audio/Banjo_tat.mp3",
+  "title": "Banjo tat",
+  "genre": "",
+  "cover": "covers/Banjo_tat.jpg"
+ },
+ {
+  "file": "audio/Bluegrass Hoedown Roll (1).mp3",
+  "title": "Bluegrass Hoedown Roll (1)",
+  "genre": "",
+  "cover": "covers/Bluegrass Hoedown Roll (1).jpg"
+ },
+ {
+  "file": "audio/Bluegrass Hoedown Roll (2).mp3",
+  "title": "Bluegrass Hoedown Roll (2)",
+  "genre": "",
+  "cover": "covers/Bluegrass Hoedown Roll (2).jpg"
+ },
+ {
+  "file": "audio/Bluegrass Hoedown Roll.mp3",
+  "title": "Bluegrass Hoedown Roll",
+  "genre": "",
+  "cover": "covers/Bluegrass Hoedown Roll.jpg"
+ },
+ {
+  "file": "audio/fleyta01.mp3",
+  "title": "fleyta01",
+  "genre": "",
+  "cover": "covers/fleyta01.jpg"
+ },
+ {
+  "file": "audio/gytar_01.mp3",
+  "title": "gytar 01",
+  "genre": "",
+  "cover": "covers/gytar_01.jpg"
+ },
+ {
+  "file": "audio/gytar_02.mp3",
+  "title": "gytar 02",
+  "genre": "",
+  "cover": "covers/gytar_02.jpg"
+ },
+ {
+  "file": "audio/gytar_03.mp3",
+  "title": "gytar 03",
+  "genre": "",
+  "cover": "covers/gytar_03.jpg"
  },
  {
   "file": "audio/Nocturnal Montage.mp3",
@@ -64,6 +406,84 @@
   "title": "Nocturnal Montage10",
   "genre": "",
   "cover": "covers/Nocturnal Montage10.jpg"
+ },
+ {
+  "file": "audio/rec (1).mp3",
+  "title": "rec (1)",
+  "genre": "",
+  "cover": "covers/rec (1).jpg"
+ },
+ {
+  "file": "audio/rec (2).mp3",
+  "title": "rec (2)",
+  "genre": "",
+  "cover": "covers/rec (2).jpg"
+ },
+ {
+  "file": "audio/rec (3).mp3",
+  "title": "rec (3)",
+  "genre": "",
+  "cover": "covers/rec (3).jpg"
+ },
+ {
+  "file": "audio/rec (4).mp3",
+  "title": "rec (4)",
+  "genre": "",
+  "cover": "covers/rec (4).jpg"
+ },
+ {
+  "file": "audio/rec (5).mp3",
+  "title": "rec (5)",
+  "genre": "",
+  "cover": "covers/rec (5).jpg"
+ },
+ {
+  "file": "audio/rec (6).mp3",
+  "title": "rec (6)",
+  "genre": "",
+  "cover": "covers/rec (6).jpg"
+ },
+ {
+  "file": "audio/rec (Instrumental).mp3",
+  "title": "rec (Instrumental)",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/rec (Vocals).mp3",
+  "title": "rec (Vocals)",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/rec.mp3",
+  "title": "rec",
+  "genre": "",
+  "cover": "covers/rec.jpg"
+ },
+ {
+  "file": "audio/symph_Returning Home 01.mp3",
+  "title": "symph Returning Home 01",
+  "genre": "",
+  "cover": "covers/symph_Returning Home 01.jpg"
+ },
+ {
+  "file": "audio/symph_Returning Home 02.mp3",
+  "title": "symph Returning Home 02",
+  "genre": "",
+  "cover": "covers/symph_Returning Home 02.jpg"
+ },
+ {
+  "file": "audio/symph_Returning Home 03.mp3",
+  "title": "symph Returning Home 03",
+  "genre": "",
+  "cover": "covers/symph_Returning Home 03.jpg"
+ },
+ {
+  "file": "audio/Tram_tram_01_.mp3",
+  "title": "Tram tram 01 ",
+  "genre": "",
+  "cover": "covers/Tram_tram_01_.jpg"
  },
  {
   "file": "audio/Wobble Drive_Gitar.mp3",
