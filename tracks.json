@@ -1,11 +1,5 @@
 [
  {
-  "file": "audio/04. тамтарм.mp3",
-  "title": "04. тамтарм",
-  "genre": "",
-  "cover": "covers/04. тамтарм.jpg"
- },
- {
   "file": "audio/05. тамтарм.mp3",
   "title": "05. тамтарм",
   "genre": "",
@@ -172,6 +166,12 @@
   "title": "пышинпей",
   "genre": "",
   "cover": "covers/пышинпей.jpg"
+ },
+ {
+  "file": "audio/студент трам там.mp3",
+  "title": "студент трам там",
+  "genre": "",
+  "cover": "covers/студент трам там.jpg"
  },
  {
   "file": "audio/Төнге җилләр (1).mp3",
