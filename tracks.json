@@ -6,12 +6,6 @@
   "cover": "covers/50-02_парень.jpg"
  },
  {
-  "file": "audio/Авылым дуэт.mp3",
-  "title": "Авылым дуэт",
-  "genre": "",
-  "cover": "covers/Авылым дуэт.jpg"
- },
- {
   "file": "audio/Блендер трам пампам.mp3",
   "title": "Блендер трам пампам",
   "genre": "",
@@ -172,6 +166,12 @@
   "title": "студент трам там",
   "genre": "",
   "cover": "covers/студент трам там.jpg"
+ },
+ {
+  "file": "audio/тат Авылым дуэт.mp3",
+  "title": "тат Авылым дуэт",
+  "genre": "",
+  "cover": "covers/тат Авылым дуэт.jpg"
  },
  {
   "file": "audio/Төнге җилләр (1).mp3",
