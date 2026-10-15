@@ -13,7 +13,7 @@ li a.dl{color:#b388ff;text-decoration:none;width:44px;height:44px;line-height:44
 li{gap:4px}li span.n{min-width:0;overflow:hidden;text-overflow:ellipsis}.ch{height:36px;border-radius:18px;padding:0 12px;font-size:.85rem}.ch i{width:14px;height:14px;vertical-align:middle}.ed{background:none;width:36px;height:36px;font-size:1rem;flex:none;display:none}body.owner .ed{display:inline-block}
 #ios{display:none;background:#1e1530;border-radius:12px;padding:8px;margin-top:8px}#ios a{display:block;padding:14px;color:#fff;background:#2a2040;border-radius:10px;margin:6px 0;text-decoration:none}
 @media(max-width:420px){.w{padding:8px 10px 0}.big{height:min(30vh,260px)}button{width:48px;height:48px}button.p{width:58px;height:58px}li img{width:40px;height:40px}}
-li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head><body><div class="w"><div class="top"><h1><span>RG-SOUND</span></h1><button id="own" title="Режим владельца">⚙</button>
+.big{height:min(22vh,210px);border-radius:12px}.now{margin:6px 0}.c{gap:16px;margin:6px 0}button{width:46px;height:46px}button.p{width:56px;height:56px}h1{margin:0 0 4px;font-size:1rem;line-height:28px}.w{padding-top:2px!important}#own{width:32px;height:32px;font-size:1rem}.mdl button{width:auto;height:auto;border-radius:10px;padding:10px;font-size:1rem}@media(max-width:420px){.big{height:min(20vh,170px)}button{width:42px;height:42px}button.p{width:50px;height:50px}}li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head><body><div class="w"><div class="top"><h1><span>RG-SOUND</span></h1><button id="own" title="Режим владельца">⚙</button>
 <img class="big" id="big" src="cover.svg" alt=""><div class="now" id="now">Загрузка…</div>
 <div class="bar" id="bar"><div class="fill" id="fill"></div></div><div class="t"><span id="cur">0:00</span><span id="dur">0:00</span></div>
 <div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div>
@@ -21,7 +21,7 @@ li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head>
 <ul id="list"></ul></div>
 <div id="toast" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#7c4dff;padding:12px 18px;border-radius:22px;opacity:0;transition:opacity .3s;pointer-events:none">.</div><audio id="au" preload="metadata"></audio>
 <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
-<script>
+<script src="qrcode.js"></script><script>
 // Треки берутся автоматически из папки audio/, обложки — из covers/ (то же имя файла). Код править не нужно.
 const REPO='foduvovutu597-afk/sound-ai-player',DEF='cover.svg',A=/\.(mp3|m4a|wav|ogg|flac)$/i,I=/\.(jpe?g|png|webp)$/i;
 const au=document.getElementById('au'),$=i=>document.getElementById(i);let T=[],i=0;
@@ -75,11 +75,47 @@ $('zip').onclick=async()=>{const b=$('zip'),L=T.filter(ok);if(!L.length||b.disab
  for(let k=0;k<L.length;k++){b.textContent=`Скачивание ${k+1}/${L.length}…`;const a=document.createElement('a');a.href=enc(L[k].file);a.download=L[k].file.split('/').pop();
   document.body.appendChild(a);a.click();a.remove();await new Promise(r=>setTimeout(r,400))}
  b.disabled=false;b.textContent='⬇ Скачать выбранное'};
-// Режим владельца: токен GitHub хранится только в этом браузере
-const TK=()=>localStorage.getItem('rgsound_token');
+// Режим владельца: токен GitHub хранится только в этом браузере (открыто или зашифровано PIN-кодом)
+const EK='rgsound_enc';let SESS=sessionStorage.getItem('rgsound_sess')||null;
+const TK=()=>SESS||localStorage.getItem('rgsound_token');
 function owner(){document.body.classList.toggle('owner',!!TK())}
-$('own').onclick=()=>{if(TK()){if(confirm('Выйти из режима владельца (удалить токен из браузера)?')){localStorage.removeItem('rgsound_token');owner()}return}
- const t=prompt('GitHub токен (fine-grained, репозиторий sound-ai-player, Contents: Read and write). Хранится только в этом браузере.');if(t&&t.trim()){localStorage.setItem('rgsound_token',t.trim());owner();refresh(false)}};
+const b64=u=>btoa(String.fromCharCode(...new Uint8Array(u))),ub64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function pkey(pin,salt){const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pin),'PBKDF2',false,['deriveKey']);
+ return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:200000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
+async function encSave(tok,pin){const s=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
+ const c=await crypto.subtle.encrypt({name:'AES-GCM',iv},await pkey(pin,s),new TextEncoder().encode(tok));
+ localStorage.setItem(EK,JSON.stringify({s:b64(s),iv:b64(iv),c:b64(c),f:0}));localStorage.removeItem('rgsound_token')}
+async function encOpen(pin){const e=JSON.parse(localStorage.getItem(EK));
+ try{const p=await crypto.subtle.decrypt({name:'AES-GCM',iv:ub64(e.iv)},await pkey(pin,ub64(e.s)),ub64(e.c));e.f=0;localStorage.setItem(EK,JSON.stringify(e));return new TextDecoder().decode(p)}
+ catch(_){e.f=(e.f||0)+1;if(e.f>=5){localStorage.removeItem(EK);return false}localStorage.setItem(EK,JSON.stringify(e));return 5-e.f}}
+function unlock(t){SESS=t;sessionStorage.setItem('rgsound_sess',t);owner();refresh(false)}
+function logout(){SESS=null;sessionStorage.removeItem('rgsound_sess');localStorage.removeItem('rgsound_token');localStorage.removeItem(EK);owner()}
+// Простое модальное окно
+function modal(html){const o=document.createElement('div');o.style.cssText='position:fixed;inset:0;background:#000b;z-index:99;display:flex;align-items:center;justify-content:center;padding:16px';
+ o.innerHTML='<div class="mdl" style="background:#1b1b22;color:#eee;border-radius:14px;padding:18px;max-width:340px;width:100%;text-align:center;display:flex;flex-direction:column;gap:10px">'+html+'</div>';
+ o.onclick=e=>{if(e.target===o)o.remove()};document.body.appendChild(o);return o}
+const pinIn='<input id="pin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" style="font-size:2rem;letter-spacing:.5em;text-align:center;padding:8px;border-radius:8px;border:0;width:100%;box-sizing:border-box">';
+function askPin(title,extra=''){return new Promise(res=>{const o=modal('<b>'+title+'</b>'+pinIn+'<div id="pmsg" style="color:#f88;min-height:1em"></div><button id="pok">OK</button>'+extra);
+ const p=o.querySelector('#pin'),go=()=>{if(/^\d{4}$/.test(p.value))res({v:p.value,o});else o.querySelector('#pmsg').textContent='Нужно 4 цифры'};
+ o.querySelector('#pok').onclick=go;p.onkeyup=e=>{if(e.key==='Enter'||p.value.length===4)go()};setTimeout(()=>p.focus(),50);o.addEventListener('click',e=>{if(e.target===o)res(null)})})}
+async function setPin(tok){const a=await askPin('Придумай PIN из 4 цифр');if(!a)return false;a.o.remove();const b=await askPin('Повтори PIN');if(!b)return false;b.o.remove();
+ if(a.v!==b.v){alert('PIN не совпал, попробуй ещё раз');return setPin(tok)}await encSave(tok,a.v);return true}
+function manual(){const t=prompt('GitHub токен (fine-grained, репозиторий sound-ai-player, Contents: Read and write). Хранится только в этом браузере.');
+ if(!t||!t.trim())return;const tok=t.trim();if(confirm('Защитить токен PIN-кодом из 4 цифр? (OK — да, Отмена — хранить без PIN)'))setPin(tok).then(ok=>{if(ok)unlock(tok)});else{localStorage.setItem('rgsound_token',tok);unlock(tok)}}
+function showQR(){const url=location.origin+location.pathname+'#owner='+encodeURIComponent(TK());const q=qrcode(0,'L');q.addData(url);q.make();
+ modal('<b>📱 Наведи камеру телефона</b>'+q.createSvgTag({cellSize:4,margin:4,scalable:true}).replace('<svg','<svg style="background:#fff;width:100%;height:auto;border-radius:8px"')+'<small>В QR-коде твой ключ — никому не показывай. На телефоне попросит придумать PIN.</small><button onclick="this.closest(\'div[style]\').parentNode.remove()">Закрыть</button>')}
+$('own').onclick=async()=>{
+ if(TK()){const o=modal('<b>Режим владельца</b><button id="mq">📱 QR для телефона</button>'+(localStorage.getItem('rgsound_token')?'<button id="mp">🔒 Защитить PIN-кодом</button>':'')+'<button id="ml">Выйти (удалить токен)</button><button id="mc">Закрыть</button>');
+  o.querySelector('#mq').onclick=()=>{o.remove();showQR()};o.querySelector('#mc').onclick=()=>o.remove();
+  const mp=o.querySelector('#mp');if(mp)mp.onclick=async()=>{o.remove();const t=TK();if(await setPin(t)){unlock(t);toast('Токен защищён PIN')}};
+  o.querySelector('#ml').onclick=()=>{if(confirm('Выйти и удалить токен из этого браузера?')){logout();o.remove()}};return}
+ if(localStorage.getItem(EK)){for(;;){const a=await askPin('Введи PIN владельца','<button id="pm">Вставить токен вручную</button><button id="px">Забыть токен</button>');
+   if(!a)return;const r=await encOpen(a.v);if(typeof r==='string'){a.o.remove();unlock(r);toast('Режим владельца включён');return}
+   a.o.remove();if(r===false){alert('5 неверных попыток — токен удалён. Отсканируй QR заново.');return}alert('Неверный PIN. Осталось попыток: '+r)}}
+ manual()};
+document.addEventListener('click',e=>{if(e.target.id==='pm'){e.target.closest('div[style]').parentNode.remove();manual()}if(e.target.id==='px'&&confirm('Удалить сохранённый токен?')){e.target.closest('div[style]').parentNode.remove();logout()}});
+(async()=>{const m=location.hash.match(/owner=([^&]+)/);if(!m)return;const tok=decodeURIComponent(m[1]);history.replaceState(null,'',location.pathname+location.search);
+ if(await setPin(tok)){unlock(tok);toast('Режим владельца включён')}})();
 async function gh(p,o={}){const r=await fetch('https://api.github.com/repos/'+REPO+p,{...o,headers:{Authorization:'Bearer '+TK(),Accept:'application/vnd.github+json'},cache:'no-store'});
  if(!r.ok)throw new Error(r.status+' '+(await r.text()).slice(0,120));return r.json()}
 async function commit(changes,msg){ // changes: [{path, sha|null}] ; then tracks.json regenerated
