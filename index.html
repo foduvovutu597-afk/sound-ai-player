@@ -13,10 +13,9 @@ li a.dl{color:#b388ff;text-decoration:none;width:28px;text-align:center}
 li img{width:44px;height:44px;border-radius:6px;object-fit:cover}</style></head><body><div class="w"><h1><span>RG-SOUND</span></h1>
 <img class="big" id="big" src="cover.svg" alt=""><div class="now" id="now">Загрузка…</div>
 <div class="bar" id="bar"><div class="fill" id="fill"></div></div><div class="t"><span id="cur">0:00</span><span id="dur">0:00</span></div>
-<div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div><div class="f"><input id="q" placeholder="Поиск…"><button class="ch" data-f="fav">★ Избранное</button><button class="ch" data-f="1"><i style="background:#4caf50"></i></button><button class="ch" data-f="2"><i style="background:#ffc107"></i></button><button class="ch" data-f="3"><i style="background:#f44336"></i></button></div><button class="ch" id="zip" style="margin-top:8px;width:100%">⬇ Скачать выбранное (ZIP)</button><ul id="list"></ul></div>
+<div class="c"><button id="prev">⏮</button><button class="p" id="play">▶</button><button id="next">⏭</button></div><div class="f"><input id="q" placeholder="Поиск…"><button class="ch" data-f="fav">★ Избранное</button><button class="ch" data-f="1"><i style="background:#4caf50"></i></button><button class="ch" data-f="2"><i style="background:#ffc107"></i></button><button class="ch" data-f="3"><i style="background:#f44336"></i></button></div><button class="ch" id="zip" style="margin-top:8px;width:100%">⬇ Скачать выбранное</button><ul id="list"></ul></div>
 <audio id="au" preload="metadata"></audio>
 <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script>
 // Треки берутся автоматически из папки audio/, обложки — из covers/ (то же имя файла). Код править не нужно.
 const REPO='foduvovutu597-afk/sound-ai-player',DEF='cover.svg',A=/\.(mp3|m4a|wav|ogg|flac)$/i,I=/\.(jpe?g|png|webp)$/i;
@@ -54,13 +53,9 @@ const fmt=s=>isNaN(s)?'0:00':Math.floor(s/60)+':'+String(Math.floor(s%60)).padSt
 au.ontimeupdate=()=>{$('fill').style.width=(au.currentTime/au.duration*100||0)+'%';$('cur').textContent=fmt(au.currentTime);$('dur').textContent=fmt(au.duration)};
 $('bar').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration};
 if('mediaSession'in navigator){navigator.mediaSession.setActionHandler('nexttrack',()=>$('next').onclick());navigator.mediaSession.setActionHandler('previoustrack',()=>$('prev').onclick())}
-function fname(){const p=[];if(F.fav)p.push('Izbrannoe');const c={1:'green',2:'yellow',3:'red'};[...F.m].sort().forEach(m=>p.push(c[m]));const q=$('q').value.trim();if(q)p.push(q);
- return 'RG-SOUND_'+(p.join('_')||'all').replace(/[\\/:*?"<>|\s]+/g,'-')+'.zip'}
-$('zip').onclick=async()=>{const b=$('zip'),L=T.filter(ok);if(!L.length||b.disabled)return;if(!window.JSZip){alert('Не загрузился JSZip');return}
- b.disabled=true;const z=new JSZip();try{for(let k=0;k<L.length;k++){b.textContent=`Загрузка ${k+1}/${L.length}…`;
-  const r=await fetch(enc(L[k].file));z.file(L[k].file.split('/').pop(),await r.blob(),{binary:true})}
-  const blob=await z.generateAsync({type:'blob',compression:'STORE'},m=>b.textContent=`Упаковка ${Math.round(m.percent)}%`);
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname();a.click();setTimeout(()=>URL.revokeObjectURL(a.href),6e4)}
- catch(e){alert('Ошибка скачивания')}b.disabled=false;b.textContent='⬇ Скачать выбранное (ZIP)'};
+$('zip').onclick=async()=>{const b=$('zip'),L=T.filter(ok);if(!L.length||b.disabled)return;b.disabled=true;
+ for(let k=0;k<L.length;k++){b.textContent=`Скачивание ${k+1}/${L.length}…`;const a=document.createElement('a');a.href=enc(L[k].file);a.download=L[k].file.split('/').pop();
+  document.body.appendChild(a);a.click();a.remove();await new Promise(r=>setTimeout(r,400))}
+ b.disabled=false;b.textContent='⬇ Скачать выбранное'};
 init();
 </script></body></html>
