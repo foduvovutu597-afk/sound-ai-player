@@ -318,6 +318,12 @@
   "cover": "covers/Montage гармонь.jpg"
  },
  {
+  "file": "audio/Montage Завойский.mp3",
+  "title": "Montage Завойский",
+  "genre": "",
+  "cover": "covers/Montage Завойский.jpg"
+ },
+ {
   "file": "audio/Montage инстр.mp3",
   "title": "Montage инстр",
   "genre": "",
@@ -334,12 +340,6 @@
   "title": "Montage муж питер",
   "genre": "",
   "cover": "covers/Montage муж питер.jpg"
- },
- {
-  "file": "audio/Nocturnal Montage05.mp3",
-  "title": "Nocturnal Montage05",
-  "genre": "",
-  "cover": "covers/Nocturnal Montage05.jpg"
  },
  {
   "file": "audio/Nocturnal Montage06.mp3",
