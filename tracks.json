@@ -108,6 +108,12 @@
   "cover": "covers/мандибуля шепот.jpg"
  },
  {
+  "file": "audio/она любит студия гитара.mp3",
+  "title": "она любит студия гитара",
+  "genre": "",
+  "cover": "covers/она любит студия гитара.jpg"
+ },
+ {
   "file": "audio/Почка за токены рай.mp3",
   "title": "Почка за токены рай",
   "genre": "",
@@ -352,12 +358,6 @@
   "title": "rec (5)",
   "genre": "",
   "cover": "covers/rec (5).jpg"
- },
- {
-  "file": "audio/rec (6).mp3",
-  "title": "rec (6)",
-  "genre": "",
-  "cover": "covers/rec (6).jpg"
  },
  {
   "file": "audio/rec (Instrumental).mp3",
