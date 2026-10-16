@@ -18,12 +18,6 @@
   "cover": "covers/50-02_Вибранов Сергей.jpg"
  },
  {
-  "file": "audio/Блендер трам пампам.mp3",
-  "title": "Блендер трам пампам",
-  "genre": "",
-  "cover": "covers/Блендер трам пампам.jpg"
- },
- {
   "file": "audio/дорога в горах_Gitar.mp3",
   "title": "дорога в горах Gitar",
   "genre": "",
@@ -256,6 +250,12 @@
   "title": "трамтам скрипка гармошка",
   "genre": "",
   "cover": "covers/трамтам скрипка гармошка.jpg"
+ },
+ {
+  "file": "audio/Шейдер трам пампам.mp3",
+  "title": "Шейдер трам пампам",
+  "genre": "",
+  "cover": "covers/Шейдер трам пампам.jpg"
  },
  {
   "file": "audio/Banjo_rave_van.mp3",
