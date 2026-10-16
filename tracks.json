@@ -72,6 +72,12 @@
   "cover": "covers/Зин, ты помнишь космос.jpg"
  },
  {
+  "file": "audio/Ирландия девушка про остров.mp3",
+  "title": "Ирландия девушка про остров",
+  "genre": "",
+  "cover": "covers/Ирландия девушка про остров.jpg"
+ },
+ {
   "file": "audio/мандибуля банжо.mp3",
   "title": "мандибуля банжо",
   "genre": "",
@@ -412,12 +418,6 @@
   "title": "Wobble Drive Wiman Irland 01",
   "genre": "",
   "cover": "covers/Wobble Drive_Wiman_Irland_01.jpg"
- },
- {
-  "file": "audio/Wobble Drive_Wiman_Irland_02.mp3",
-  "title": "Wobble Drive Wiman Irland 02",
-  "genre": "",
-  "cover": "covers/Wobble Drive_Wiman_Irland_02.jpg"
  },
  {
   "file": "audio/Wobble Drive_Wiman_Irland_03.mp3",
