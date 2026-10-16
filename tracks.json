@@ -42,12 +42,6 @@
   "cover": "covers/Зин жен фл бал хор.jpg"
  },
  {
-  "file": "audio/Зин, детс симфония муж.mp3",
-  "title": "Зин, детс симфония муж",
-  "genre": "",
-  "cover": "covers/Зин, детс симфония муж.jpg"
- },
- {
   "file": "audio/Зин, жен банжо.mp3",
   "title": "Зин, жен банжо",
   "genre": "",
@@ -442,5 +436,11 @@
   "title": "Wobble Drive Wiman Irland 05",
   "genre": "",
   "cover": "covers/Wobble Drive_Wiman_Irland_05.jpg"
+ },
+ {
+  "file": "audio/Zin, детс симфония муж.mp3",
+  "title": "Zin, детс симфония муж",
+  "genre": "",
+  "cover": "covers/Zin, детс симфония муж.jpg"
  }
 ]
