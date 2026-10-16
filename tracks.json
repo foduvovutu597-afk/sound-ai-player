@@ -1,5 +1,11 @@
 [
  {
+  "file": "audio/50-02 Спрингофф Фарид.mp3",
+  "title": "50-02 Спрингофф Фарид",
+  "genre": "",
+  "cover": "covers/50-02 Спрингофф Фарид.jpg"
+ },
+ {
   "file": "audio/50-02_парень.mp3",
   "title": "50-02 парень",
   "genre": "",
@@ -358,12 +364,6 @@
   "title": "Montage Спрингофф",
   "genre": "",
   "cover": "covers/Montage Спрингофф.jpg"
- },
- {
-  "file": "audio/Nocturnal Montage09.mp3",
-  "title": "Nocturnal Montage09",
-  "genre": "",
-  "cover": "covers/Nocturnal Montage09.jpg"
  },
  {
   "file": "audio/Nocturnal Montage10.mp3",
