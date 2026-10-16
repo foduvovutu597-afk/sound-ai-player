@@ -90,6 +90,12 @@
   "cover": "covers/Ирландия девушка про остров.jpg"
  },
  {
+  "file": "audio/лесная радость (Instrumental).mp3",
+  "title": "лесная радость (Instrumental)",
+  "genre": "",
+  "cover": null
+ },
+ {
   "file": "audio/лесная радость инстр балал.mp3",
   "title": "лесная радость инстр балал",
   "genre": "",
@@ -358,12 +364,6 @@
   "title": "Nocturnal Montage10",
   "genre": "",
   "cover": "covers/Nocturnal Montage10.jpg"
- },
- {
-  "file": "audio/rec (Instrumental).mp3",
-  "title": "rec (Instrumental)",
-  "genre": "",
-  "cover": null
  },
  {
   "file": "audio/rec (Vocals).mp3",
