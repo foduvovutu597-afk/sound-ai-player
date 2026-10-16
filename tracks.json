@@ -1,5 +1,11 @@
 [
  {
+  "file": "audio/50-02 Канров.mp3",
+  "title": "50-02 Канров",
+  "genre": "",
+  "cover": "covers/50-02 Канров.jpg"
+ },
+ {
   "file": "audio/50-02 Спрингофф Фарид.mp3",
   "title": "50-02 Спрингофф Фарид",
   "genre": "",
@@ -364,12 +370,6 @@
   "title": "Montage Спрингофф",
   "genre": "",
   "cover": "covers/Montage Спрингофф.jpg"
- },
- {
-  "file": "audio/Nocturnal Montage10.mp3",
-  "title": "Nocturnal Montage10",
-  "genre": "",
-  "cover": "covers/Nocturnal Montage10.jpg"
  },
  {
   "file": "audio/Returning Home 1 симф труба.mp3",
