@@ -1,5 +1,29 @@
 [
  {
+  "file": "audio/Авыл01.mp3",
+  "title": "Авыл01",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Авыл02.mp3",
+  "title": "Авыл02",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Авыл03.mp3",
+  "title": "Авыл03",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Авыл04.mp3",
+  "title": "Авыл04",
+  "genre": "",
+  "cover": null
+ },
+ {
   "file": "audio/дорога в горах_Gitar.mp3",
   "title": "дорога в горах Gitar",
   "genre": "",
@@ -84,6 +108,24 @@
   "cover": "covers/Ирландия девушка про остров.jpg"
  },
  {
+  "file": "audio/Карандаши_гет.mp3",
+  "title": "Карандаши гет",
+  "genre": "",
+  "cover": "covers/Карандаши_гет.jpg"
+ },
+ {
+  "file": "audio/Карандаши_опер.mp3",
+  "title": "Карандаши опер",
+  "genre": "",
+  "cover": "covers/Карандаши_опер.jpg"
+ },
+ {
+  "file": "audio/Карашдаши.mp3",
+  "title": "Карашдаши",
+  "genre": "",
+  "cover": "covers/Карашдаши.jpg"
+ },
+ {
   "file": "audio/комл 50-02 Кантров Евгений.mp3",
   "title": "комл 50-02 Кантров Евгений",
   "genre": "",
@@ -100,6 +142,66 @@
   "title": "компл 50-02 Спрингофф Илья",
   "genre": "",
   "cover": "covers/компл 50-02 Спрингофф Илья.jpg"
+ },
+ {
+  "file": "audio/Космос_01.mp3",
+  "title": "Космос 01",
+  "genre": "",
+  "cover": "covers/Космос_01.jpg"
+ },
+ {
+  "file": "audio/Космос02.mp3",
+  "title": "Космос02",
+  "genre": "",
+  "cover": "covers/Космос02.jpg"
+ },
+ {
+  "file": "audio/Космос03.mp3",
+  "title": "Космос03",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Космос04.mp3",
+  "title": "Космос04",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Космос06.mp3",
+  "title": "Космос06",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Космос07.mp3",
+  "title": "Космос07",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Космос08.mp3",
+  "title": "Космос08",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Космос09.mp3",
+  "title": "Космос09",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Космос10.mp3",
+  "title": "Космос10",
+  "genre": "",
+  "cover": null
+ },
+ {
+  "file": "audio/Космос11.mp3",
+  "title": "Космос11",
+  "genre": "",
+  "cover": null
  },
  {
   "file": "audio/лесная радость (Instrumental).mp3",
@@ -148,6 +250,12 @@
   "title": "мандибуля шепот",
   "genre": "",
   "cover": "covers/мандибуля шепот.jpg"
+ },
+ {
+  "file": "audio/ночь01.mp3",
+  "title": "ночь01",
+  "genre": "",
+  "cover": null
  },
  {
   "file": "audio/она любит студия гитара.mp3",
