@@ -90,6 +90,12 @@
   "cover": "covers/Ирландия девушка про остров.jpg"
  },
  {
+  "file": "audio/лесная радость инстр балал.mp3",
+  "title": "лесная радость инстр балал",
+  "genre": "",
+  "cover": "covers/лесная радость инстр балал.jpg"
+ },
+ {
   "file": "audio/мандибуля банжо.mp3",
   "title": "мандибуля банжо",
   "genre": "",
@@ -352,12 +358,6 @@
   "title": "Nocturnal Montage10",
   "genre": "",
   "cover": "covers/Nocturnal Montage10.jpg"
- },
- {
-  "file": "audio/rec (5).mp3",
-  "title": "rec (5)",
-  "genre": "",
-  "cover": "covers/rec (5).jpg"
  },
  {
   "file": "audio/rec (Instrumental).mp3",
