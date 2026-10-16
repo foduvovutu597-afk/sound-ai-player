@@ -336,6 +336,12 @@
   "cover": "covers/Montage гармонь.jpg"
  },
  {
+  "file": "audio/Montage женск.mp3",
+  "title": "Montage женск",
+  "genre": "",
+  "cover": "covers/Montage женск.jpg"
+ },
+ {
   "file": "audio/Montage Завойский.mp3",
   "title": "Montage Завойский",
   "genre": "",
@@ -394,6 +400,12 @@
   "title": "Tram tram инструментал",
   "genre": "",
   "cover": "covers/Tram_tram_инструментал.jpg"
+ },
+ {
+  "file": "audio/Wobble Drive флейта.mp3",
+  "title": "Wobble Drive флейта",
+  "genre": "",
+  "cover": "covers/Wobble Drive флейта.jpg"
  },
  {
   "file": "audio/Wobble Drive_Wiman_Irland_01.mp3",
