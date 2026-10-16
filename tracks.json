@@ -312,6 +312,12 @@
   "cover": "covers/gytar_03.jpg"
  },
  {
+  "file": "audio/Montage Василий Канриванов.mp3",
+  "title": "Montage Василий Канриванов",
+  "genre": "",
+  "cover": "covers/Montage Василий Канриванов.jpg"
+ },
+ {
   "file": "audio/Montage гармонь.mp3",
   "title": "Montage гармонь",
   "genre": "",
@@ -340,12 +346,6 @@
   "title": "Montage муж питер",
   "genre": "",
   "cover": "covers/Montage муж питер.jpg"
- },
- {
-  "file": "audio/Nocturnal Montage06.mp3",
-  "title": "Nocturnal Montage06",
-  "genre": "",
-  "cover": "covers/Nocturnal Montage06.jpg"
  },
  {
   "file": "audio/Nocturnal Montage07.mp3",
