@@ -312,12 +312,6 @@
   "cover": "covers/gytar_03.jpg"
  },
  {
-  "file": "audio/Montage гарм басс.mp3",
-  "title": "Montage гарм басс",
-  "genre": "",
-  "cover": "covers/Montage гарм басс.jpg"
- },
- {
   "file": "audio/Montage гармонь.mp3",
   "title": "Montage гармонь",
   "genre": "",
@@ -328,6 +322,12 @@
   "title": "Montage инстр",
   "genre": "",
   "cover": "covers/Montage инстр.jpg"
+ },
+ {
+  "file": "audio/Montage муж гарм басс.mp3",
+  "title": "Montage муж гарм басс",
+  "genre": "",
+  "cover": "covers/Montage муж гарм басс.jpg"
  },
  {
   "file": "audio/Nocturnal Montage04.mp3",
