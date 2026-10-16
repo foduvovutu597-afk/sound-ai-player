@@ -12,6 +12,12 @@
   "cover": "covers/Блендер трам пампам.jpg"
  },
  {
+  "file": "audio/дорога в горах_Gitar.mp3",
+  "title": "дорога в горах Gitar",
+  "genre": "",
+  "cover": "covers/дорога в горах_Gitar.jpg"
+ },
+ {
   "file": "audio/друг дет хор.mp3",
   "title": "друг дет хор",
   "genre": "",
@@ -406,12 +412,6 @@
   "title": "Tram tram 01 ",
   "genre": "",
   "cover": "covers/Tram_tram_01_.jpg"
- },
- {
-  "file": "audio/Wobble Drive_Gitar.mp3",
-  "title": "Wobble Drive Gitar",
-  "genre": "",
-  "cover": "covers/Wobble Drive_Gitar.jpg"
  },
  {
   "file": "audio/Wobble Drive_Wiman_Irland_01.mp3",
