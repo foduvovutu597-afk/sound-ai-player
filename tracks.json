@@ -312,16 +312,16 @@
   "cover": "covers/gytar_03.jpg"
  },
  {
+  "file": "audio/Montage гармонь.mp3",
+  "title": "Montage гармонь",
+  "genre": "",
+  "cover": "covers/Montage гармонь.jpg"
+ },
+ {
   "file": "audio/Montage инстр.mp3",
   "title": "Montage инстр",
   "genre": "",
   "cover": "covers/Montage инстр.jpg"
- },
- {
-  "file": "audio/Nocturnal Montage02.mp3",
-  "title": "Nocturnal Montage02",
-  "genre": "",
-  "cover": "covers/Nocturnal Montage02.jpg"
  },
  {
   "file": "audio/Nocturnal Montage03.mp3",
