@@ -1,5 +1,5 @@
 <!doctype html><html lang="ru"><head><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Pragma" content="no-cache"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RG-SOUND</title><link rel="icon" href="cover.svg">
+<title>RG-SOUND</title><link rel="icon" href="cover.svg"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#120c1f"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="RG-SOUND">
 <style>html,body{height:100%}body{margin:0;font-family:system-ui,sans-serif;background:#120c1f;color:#fff;display:flex;justify-content:center;overflow:hidden}
 .w{width:100%;max-width:480px;padding:12px 16px 0;box-sizing:border-box;height:100vh;height:100dvh;display:flex;flex-direction:column}.top{flex:none;position:relative}h1{font-size:1.2rem;text-align:center;letter-spacing:2px;margin:4px 0 10px}#own{position:absolute;right:0;top:0;width:36px;height:36px;font-size:1rem;background:none;opacity:.6}h1 span{color:#b388ff}
 .big{display:block;margin:0 auto;height:min(34vh,320px);aspect-ratio:1;object-fit:cover;border-radius:16px;box-shadow:0 10px 40px #0008;background:#2a2040}
@@ -28,13 +28,13 @@ body:not(.owner) #rnc,body:not(.owner) #dlc{display:none}
 .bar{margin-top:var(--g,16px)}#chips{margin-top:6px}
 @media(max-width:480px){.pl{gap:12px;--g:10px;--ib:34px;--nb:44px;--pb:56px;--hd:28px}.hd h1{font-size:1.35rem;letter-spacing:2px}.lc .now{font-size:.95rem;height:20px;line-height:20px}.pl{--cv:calc(var(--hd) + 20px + var(--ib) + var(--pb) + 3*var(--g))}.ir{gap:6px}}
 @media(max-width:480px){.hd h1{white-space:nowrap;font-size:1.2rem;letter-spacing:1px}.pl .big{width:min(var(--cv),38vw);height:min(var(--cv),38vw)}}.hd h1{white-space:nowrap}
-button{-webkit-tap-highlight-color:transparent}button:focus{outline:none}button:focus-visible{outline:2px solid #b388ff;outline-offset:2px}#shf:not(.on){background:#2a2040}*{-webkit-tap-highlight-color:transparent}button,a,input,li,img,audio,.bar,[tabindex]{outline:none}button:focus,a:focus,li:focus,.bar:focus,img:focus{outline:none;box-shadow:none}:focus:not(:focus-visible){outline:none!important}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b388ff;outline-offset:2px}button::-moz-focus-inner{border:0}button:focus,button:active{outline:none!important;box-shadow:none}button svg{display:block;margin:auto;pointer-events:none}</style></head><body><div class="w"><div class="top"><div class="pl"><div class="lc"><div class="hd"><button id="own" title="Режим владельца" aria-label="Режим владельца">⚙</button><button id="rnc" class="ed" title="Переименовать текущий трек" aria-label="Переименовать текущий трек">✎</button><button id="dlc" class="ed" title="Удалить текущий трек" aria-label="Удалить текущий трек">🗑</button><h1><span>RG-SOUND</span></h1></div>
+button{-webkit-tap-highlight-color:transparent}button:focus{outline:none}button:focus-visible{outline:2px solid #b388ff;outline-offset:2px}#shf:not(.on){background:#2a2040}*{-webkit-tap-highlight-color:transparent}button,a,input,li,img,audio,.bar,[tabindex]{outline:none}button:focus,a:focus,li:focus,.bar:focus,img:focus{outline:none;box-shadow:none}:focus:not(:focus-visible){outline:none!important}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #b388ff;outline-offset:2px}button::-moz-focus-inner{border:0}button:focus,button:active{outline:none!important;box-shadow:none}button svg{display:block;margin:auto;pointer-events:none}li .off{background:none;width:36px;height:36px;flex:none;padding:0;color:#b388ff;border-radius:50%}li .off small{font-size:.7rem;color:#b388ff}li.na{opacity:.35}li.na .off{pointer-events:none}@media(max-width:480px){li .st,li .dot{width:34px;height:34px}li a.dl{width:30px}}</style></head><body><div class="w"><div class="top"><div class="pl"><div class="lc"><div class="hd"><button id="own" title="Режим владельца" aria-label="Режим владельца">⚙</button><button id="rnc" class="ed" title="Переименовать текущий трек" aria-label="Переименовать текущий трек">✎</button><button id="dlc" class="ed" title="Удалить текущий трек" aria-label="Удалить текущий трек">🗑</button><h1><span>RG-SOUND</span></h1></div>
 <div class="now" id="now">Загрузка…</div>
 <div class="ir"><button class="ch ic" id="rf" title="Обновить песни" aria-label="Обновить песни"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg></button><button class="ch ic" data-f="fav" title="Избранное" aria-label="Избранное"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></svg></button><button class="ch ic" id="shf" title="Перемешать" aria-label="Перемешать"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg></button><button class="ch" data-f="1" title="Зелёная метка"><i style="background:#4caf50"></i></button><button class="ch" data-f="2" title="Жёлтая метка"><i style="background:#ffc107"></i></button><button class="ch" data-f="3" title="Красная метка"><i style="background:#f44336"></i></button></div>
 <div class="c"><button id="prev" title="Предыдущий"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 6h2v12H6zM9.5 12 18 6v12z"/></svg></button><button class="p" id="play" title="Играть"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button><button id="next" title="Следующий"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg></button></div></div>
 <img class="big" id="big" src="default.jpg" alt=""></div>
 <div class="bar" id="bar"><div class="fill" id="fill"></div></div><div class="t"><span id="cur">0:00</span><span id="dur">0:00</span></div>
-<div class="f" id="chips"><span id="gen" style="display:contents"></span><button class="ch ic" id="zip" title="Скачать выбранное" aria-label="Скачать выбранное"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 4h2v9l3.5-3.5 1.4 1.4L12 16.8 6.1 10.9l1.4-1.4L11 13zM5 18h14v2H5z"/></svg></button></div><div id="ios"></div></div>
+<div class="f" id="chips"><button class="ch ic" id="offsel" title="Сохранить подборку в телефон" aria-label="Сохранить подборку в телефон"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 6.5v7M9 10.5l3 3 3-3M9.5 17.5h5"/></svg></button><button class="ch ic" id="inst" title="Установить приложение" aria-label="Установить приложение" style="display:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11M7.5 9.5 12 14l4.5-4.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></button><span id="gen" style="display:contents"></span><button class="ch ic" id="zip" title="Скачать выбранное" aria-label="Скачать выбранное"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 4h2v9l3.5-3.5 1.4 1.4L12 16.8 6.1 10.9l1.4-1.4L11 13zM5 18h14v2H5z"/></svg></button></div><div id="ios"></div></div>
 <ul id="list"></ul></div>
 <div id="toast" style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#7c4dff;padding:12px 18px;border-radius:22px;opacity:0;transition:opacity .3s;pointer-events:none">.</div><audio id="au" preload="metadata"></audio>
 <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
@@ -52,18 +52,18 @@ async function getJson(){const r=await fetch('tracks.json?t='+Date.now(),{cache:
 function setT(N){const cur=T[i]&&T[i].file,old=new Set(T.map(t=>t.file)),add=N.filter(t=>!old.has(t.file)).length;
  N.forEach(t=>{const o=T.find(x=>x.file===t.file);if(o&&o.art)t.art=o.art});T=typeof order==='function'?order(N):N;const k=T.findIndex(t=>t.file===cur);i=k<0?0:k;genres();render();return add}
 function toast(m){const d=$('toast');d.textContent=m;d.style.opacity=1;clearTimeout(d._t);d._t=setTimeout(()=>d.style.opacity=0,2500)}
-async function refresh(user){const b=$('rf');b.disabled=true;let N=null;
+async function refresh(user){if(!navigator.onLine){if(user)toast('Нет сети — показан сохранённый список');return false}const b=$('rf');b.disabled=true;let N=null;
  try{N=await viaApi()}catch(e){try{N=await getJson()}catch(e){}}b.disabled=false;
  if(!N){if(user)toast('Не удалось обновить список');return false}
- const first=!T.length,add=setT(N);if(user)toast(`Найдено ${T.length} треков (+${add} новых)`);if(first&&T.length&&!au.src)load(0);return true}
-async function init(){try{setT(await getJson());if(T.length)load(0)}catch(e){}
- const ok=await refresh(false);if(!ok&&!T.length)$('now').textContent='Не удалось загрузить список'}
+ const first=!T.length,add=setT(N);if(user)toast(`Найдено ${T.length} треков (+${add} новых)`);if(first&&T.length&&!au.src)load(Math.max(0,T.findIndex(playable)));return true}
+async function init(){await offScan();try{setT(await getJson());if(T.length)load(Math.max(0,T.findIndex(playable)))}catch(e){}
+ const ok=await refresh(false);if(!ok&&!T.length)$('now').textContent=navigator.onLine?'Не удалось загрузить список':'Нет сети'}
 function genres(){const g=$('gen'),gs=[...new Set(T.map(t=>t.genre||'Без жанра'))].sort((a,b)=>(a==='Без жанра')-(b==='Без жанра')||a.localeCompare(b));
  [...F.g].forEach(x=>{if(!gs.includes(x))F.g.delete(x)});g.innerHTML='';if(gs.length<2)return;
  gs.forEach(x=>{const b=document.createElement('button');b.className='ch'+(F.g.has(x)?' on':'');b.textContent=x;b.onclick=()=>{F.g.has(x)?F.g.delete(x):F.g.add(x);b.classList.toggle('on');filt()};g.appendChild(b)})}
 function cov(t){return t.cover?enc(t.cover):(t.art||DEF)}
-function render(){const L=$('list');L.innerHTML='';T.forEach((t,k)=>{const li=document.createElement('li');li.innerHTML='<img alt=""><span class="n"></span><button class="st">★</button><button class="dot"></button><a class="dl" title="Скачать">⬇</a>';
- {const g=li.querySelector('img');g.onerror=()=>{g.onerror=null;g.src=DT};g.src=cov(t)===DEF?DT:cov(t)}li.querySelector('span').textContent=t.title;deco(li,t);const a=li.querySelector('.dl');a.href=enc(t.file);a.download=t.file.split('/').pop();a.onclick=e=>e.stopPropagation();li.querySelector('.st').onclick=e=>{e.stopPropagation();S.fav[t.file]=!S.fav[t.file];save();deco(li,t);filt()};li.querySelector('.dot').onclick=e=>{e.stopPropagation();S.mark[t.file]=((S.mark[t.file]||0)+1)%4;save();deco(li,t);filt()};li.onclick=()=>{load(k);au.play()};L.appendChild(li);if(!t.cover&&!t.art)art(t,k)});mark();filt()}
+function render(){const L=$('list');L.innerHTML='';T.forEach((t,k)=>{const li=document.createElement('li');li.innerHTML='<img alt=""><span class="n"></span><button class="st">★</button><button class="dot"></button><a class="dl" title="Скачать">⬇</a><button class="off"></button>';
+ {const g=li.querySelector('img');g.onerror=()=>{g.onerror=null;g.src=DT};g.src=cov(t)===DEF?DT:cov(t)}li.querySelector('span').textContent=t.title;deco(li,t);const a=li.querySelector('.dl');a.href=enc(t.file);a.download=t.file.split('/').pop();a.onclick=e=>e.stopPropagation();li.querySelector('.st').onclick=e=>{e.stopPropagation();S.fav[t.file]=!S.fav[t.file];save();deco(li,t);filt()};li.querySelector('.dot').onclick=e=>{e.stopPropagation();S.mark[t.file]=((S.mark[t.file]||0)+1)%4;save();deco(li,t);filt()};{const ob=li.querySelector('.off');offIcon(ob,t);ob.onclick=async e=>{e.stopPropagation();if(isSaved(t)){if(confirm('Удалить «'+t.title+'» из телефона?'))offDel(t.file)}else{if(!navigator.onLine){toast('Нет сети');return}if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});offSave(t)}}};li.classList.toggle('na',!playable(t));li.onclick=()=>{if(!playable(t)){toast('Нет сети — этот трек не сохранён');return}load(k);au.play()};L.appendChild(li);if(!t.cover&&!t.art)art(t,k)});mark();filt()}
 // Обложка из mp3: свой парсер ID3v2 (APIC/PIC) через Range-запрос, запасной вариант — jsmediatags
 async function id3pic(url){const h=new Uint8Array(await (await fetch(url,{headers:{Range:'bytes=0-9'}})).arrayBuffer());
  if(h[0]!==73||h[1]!==68||h[2]!==51)return null;const v=h[3],sz=((h[6]&127)<<21)|((h[7]&127)<<14)|((h[8]&127)<<7)|(h[9]&127);
@@ -80,7 +80,7 @@ function jmt(url){return new Promise(r=>{if(!window.jsmediatags)return r(null);j
 async function getArt(t){if(!/\.(mp3|m4a)$/i.test(t.file))return null;const u=new URL(enc(t.file),location.href).href;let bl=null;
  if(/\.mp3$/i.test(t.file))try{bl=await id3pic(u)}catch(e){}return bl||jmt(u)}
 let artQ=Promise.resolve();
-function art(t,k){artQ=artQ.then(async()=>{if(t.art)return;const bl=await getArt(t);if(!bl)return;t.art=URL.createObjectURL(bl);
+function art(t,k){artQ=artQ.then(async()=>{if(t.art||!playable(t))return;const bl=await getArt(t);if(!bl)return;t.art=URL.createObjectURL(bl);
  const li=$('list').children,j=T.indexOf(t);const im=j>=0&&li[j]?.querySelector('img');if(im)im.src=t.art;if(j===i)show()}).catch(()=>{})}
 // Избранное и цветные метки хранятся у каждого слушателя в браузере (localStorage)
 const S=Object.assign({fav:{},mark:{}},JSON.parse(localStorage.getItem('rgsound')||'{}')),F={fav:false,m:new Set(),g:new Set()};
@@ -88,7 +88,7 @@ const save=()=>localStorage.setItem('rgsound',JSON.stringify(S));
 function deco(li,t){li.querySelector('.st').classList.toggle('on',!!S.fav[t.file]);li.querySelector('.dot').className='dot m'+(S.mark[t.file]||0)}
 const ok=t=>{return (!F.fav||S.fav[t.file])&&(!F.m.size||F.m.has(S.mark[t.file]||0))&&(!F.g.size||F.g.has(t.genre||'Без жанра'))};
 function filt(){[...$('list').children].forEach((li,k)=>li.style.display=ok(T[k])?'':'none')}
-function step(d){for(let n=1;n<=T.length;n++){const k=((i+d*n)%T.length+T.length)%T.length;if(ok(T[k]))return k}return i+d}
+function step(d){for(let n=1;n<=T.length;n++){const k=((i+d*n)%T.length+T.length)%T.length;if(ok(T[k])&&playable(T[k]))return k}return i+d}
 document.querySelectorAll('.ch[data-f]').forEach(b=>b.onclick=()=>{const f=b.dataset.f;if(f==='fav')F.fav=!F.fav;else{const m=+f;F.m.has(m)?F.m.delete(m):F.m.add(m)}b.classList.toggle('on');filt()});
 function mark(){[...$('list').children].forEach((li,k)=>li.classList.toggle('a',k===i))}
 function show(){const t=T[i];$('big').src=cov(t);$('big').onerror=function(){this.onerror=null;this.src=DEF};$('now').textContent=t.title;
@@ -175,7 +175,7 @@ async function renameT(t){const old=base(t.file.split('/').pop()),n=prompt('Но
   const ch=[{path:dir+nn+ext,sha:t.sha||await shaOf(t.file)},{path:t.file,sha:null}];
   if(t.cover&&base(t.cover.split('/').pop())===old){const cd=t.cover.slice(0,t.cover.lastIndexOf('/')+1),ce=t.cover.slice(t.cover.lastIndexOf('.'));ch.push({path:cd+nn+ce,sha:await shaOf(t.cover)},{path:t.cover,sha:null})}
   for(const k of['fav','mark'])if(S[k][t.file]){S[k][dir+nn+ext]=S[k][t.file];delete S[k][t.file]}save();
-  const L=await commit(ch,'Rename '+old+' → '+nn);const cur=T[i]&&T[i].file===t.file;setT(L);if(cur){const k=T.findIndex(x=>x.file===dir+nn+ext);if(k>=0){i=k;show();mark()}}toast('Переименовано. На сайте через 1–2 мин')}catch(e){alert('Ошибка: '+e.message)}}
+  const L=await commit(ch,'Rename '+old+' → '+nn);offDel(t.file);const cur=T[i]&&T[i].file===t.file;setT(L);if(cur){const k=T.findIndex(x=>x.file===dir+nn+ext);if(k>=0){i=k;show();mark()}}toast('Переименовано. На сайте через 1–2 мин')}catch(e){alert('Ошибка: '+e.message)}}
 function jpeg500(bl){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>{const k=Math.min(1,500/Math.max(im.width,im.height)),c=document.createElement('canvas');
  c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(im.src);c.toBlob(b=>b?res(b):rej(),'image/jpeg',.85)};im.onerror=rej;im.src=URL.createObjectURL(bl)})}
 const b64blob=bl=>new Promise(r=>{const f=new FileReader();f.onload=()=>r(f.result.split(',')[1]);f.readAsDataURL(bl)});
@@ -191,8 +191,51 @@ async function coversFromMp3(){const need=T.filter(t=>!(t.cover&&/^covers\//.tes
  o.querySelector('div').insertAdjacentHTML('beforeend','<button onclick="this.closest(\'.mdl\').parentNode.remove()">Закрыть</button>')}
 async function deleteT(t){if(!confirm('Удалить «'+t.title+'» из плеера навсегда?'))return;try{toast('Удаляю…');
   const ch=[{path:t.file,sha:null}];if(t.cover&&base(t.cover.split('/').pop())===base(t.file.split('/').pop()))ch.push({path:t.cover,sha:null});
-  const k0=T.indexOf(t),pl=!au.paused,L=await commit(ch,'Delete '+t.title);setT(L);if(T.length){load(Math.min(k0,T.length-1));if(pl)au.play()}toast('Удалено')}catch(e){alert('Ошибка: '+e.message)}}
+  const k0=T.indexOf(t),pl=!au.paused,L=await commit(ch,'Delete '+t.title);offDel(t.file);setT(L);if(T.length){load(Math.min(k0,T.length-1));if(pl)au.play()}toast('Удалено')}catch(e){alert('Ошибка: '+e.message)}}
 owner();
 $('rf').onclick=()=>refresh(true);
+// ===== Офлайн (PWA): сохранённые треки лежат в кэше 'rg-audio', их отдаёт sw.js =====
+const AC='rg-audio',SAVED=new Set(),PROG={},HASC='caches'in window;
+const ICO={save:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 7v7M9 11l3 3 3-3"/></svg>',
+ done:'<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#7c4dff"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+ sel:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 6.5v7M9 10.5l3 3 3-3M9.5 17.5h5"/></svg>',
+ inst:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11M7.5 9.5 12 14l4.5-4.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>'};
+const aurl=t=>new URL(enc(t.file),location.href).href;
+const MB=b=>(b/1048576).toFixed(b<10485760?1:0)+' МБ';
+async function offScan(){if(!HASC)return;try{const c=await caches.open(AC);SAVED.clear();(await c.keys()).forEach(r=>SAVED.add(decodeURIComponent(new URL(r.url).pathname)))}catch(e){}offUI()}
+const isSaved=t=>SAVED.has(decodeURIComponent(new URL(aurl(t)).pathname));
+const playable=t=>navigator.onLine||isSaved(t);
+function offIcon(b,t){const p=PROG[t.file];b.classList.toggle('sv',isSaved(t));
+ if(p!=null){b.innerHTML='<small>'+p+'%</small>';b.title='Сохраняю…'}else if(isSaved(t)){b.innerHTML=ICO.done;b.title='Сохранено в телефоне (нажми, чтобы удалить)'}else{b.innerHTML=ICO.save;b.title='Сохранить в телефон для офлайна'}}
+function offUI(){[...$('list').children].forEach((li,k)=>{const t=T[k];if(!t)return;const b=li.querySelector('.off');if(b)offIcon(b,t);li.classList.toggle('na',!playable(t))})}
+async function offSave(t){if(!HASC||PROG[t.file]!=null||isSaved(t))return true;const u=aurl(t);PROG[t.file]=0;offUI();
+ try{const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error(r.status);const tot=+r.headers.get('Content-Length')||0,rd=r.body.getReader(),ch=[];let got=0;
+  for(;;){const{done,value}=await rd.read();if(done)break;ch.push(value);got+=value.length;if(tot){const p=Math.floor(got/tot*100);if(p!==PROG[t.file]){PROG[t.file]=p;offUI()}}}
+  const bl=new Blob(ch,{type:r.headers.get('Content-Type')||'audio/mpeg'});
+  await (await caches.open(AC)).put(u,new Response(bl,{headers:{'Content-Type':bl.type,'Content-Length':String(bl.size)}}));
+  if(t.cover)fetch(enc(t.cover)).catch(()=>{});delete PROG[t.file];SAVED.add(decodeURIComponent(new URL(u).pathname));offUI();return true}
+ catch(e){delete PROG[t.file];offUI();toast('Не удалось сохранить: '+t.title);return false}}
+async function offDel(file){if(!HASC)return;try{const u=new URL(enc(file),location.href).href;await (await caches.open(AC)).delete(u);SAVED.delete(decodeURIComponent(new URL(u).pathname))}catch(e){}offUI()}
+async function offAll(){if(!HASC)return;await caches.delete(AC);SAVED.clear();offUI()}
+async function sizeOf(t){if(t.size)return t.size;try{const r=await fetch(aurl(t),{method:'HEAD'});t.size=+r.headers.get('Content-Length')||0}catch(e){}return t.size||0}
+async function storeInfo(){if(!navigator.storage||!navigator.storage.estimate)return '';const e=await navigator.storage.estimate();return 'Занято на устройстве: '+MB(e.usage||0)+(e.quota?' из '+MB(e.quota):'')}
+async function offMenu(){const L=T.filter(ok),need=L.filter(t=>!isSaved(t));
+ const o=modal('<b>Офлайн-музыка</b><div id="oi" style="opacity:.8;font-size:.9rem">Считаю…</div><button id="os">Сохранить подборку в телефон</button><button id="ox">Удалить все офлайн-копии</button><button id="oc">Закрыть</button>');
+ const oi=o.querySelector('#oi'),os=o.querySelector('#os');o.querySelector('#oc').onclick=()=>o.remove();
+ o.querySelector('#ox').onclick=async()=>{if(!SAVED.size){toast('Офлайн-копий нет');return}if(confirm('Удалить все сохранённые треки ('+SAVED.size+') из телефона?')){await offAll();o.remove();toast('Офлайн-копии удалены')}};
+ const sz=(await Promise.all(need.map(sizeOf))).reduce((a,b)=>a+b,0),si=await storeInfo();
+ oi.innerHTML=`В подборке ${L.length} треков, сохранено ${L.length-need.length}.<br>`+(need.length?`Осталось скачать ${need.length} (${MB(sz)}).`:'Вся подборка уже в телефоне.')+'<br>Сохранено всего: '+SAVED.size+(si?'<br>'+si:'');
+ if(!need.length||!navigator.onLine)os.disabled=true;
+ os.onclick=async()=>{os.disabled=true;if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});let n=0,okc=0,b=0;
+  for(const t of need){n++;os.textContent=`Сохраняю ${n} из ${need.length} · ${MB(b)} из ${MB(sz)}`;if(await offSave(t))okc++;b+=t.size||0}
+  os.textContent=`Готово: сохранено ${okc} из ${need.length}`;oi.innerHTML='Сохранено всего: '+SAVED.size+'<br>'+(await storeInfo())}}
+$('offsel').onclick=()=>{if(!HASC){toast('Офлайн не поддерживается этим браузером');return}offMenu()};
+addEventListener('online',()=>{offUI();toast('Сеть есть')});addEventListener('offline',()=>{offUI();toast('Нет сети — играют только сохранённые треки')});
+// Установка приложения (Android Chrome): кнопка видна только если браузер предлагает установку
+let DP=null;const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();DP=e;if(!standalone())$('inst').style.display='flex'});
+addEventListener('appinstalled',()=>{DP=null;$('inst').style.display='none';toast('Приложение установлено')});
+$('inst').onclick=async()=>{if(!DP)return;DP.prompt();try{await DP.userChoice}catch(e){}DP=null;$('inst').style.display='none'};
+if('serviceWorker'in navigator&&location.protocol!=='file:')navigator.serviceWorker.register('sw.js').catch(()=>{});
 init();
 </script></body></html>
