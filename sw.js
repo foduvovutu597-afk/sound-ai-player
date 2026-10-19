@@ -1,7 +1,7 @@
 // RG-SOUND service worker. Меняй VERSION при обновлении оболочки.
-const VERSION='v1',SHELL='rg-shell-'+VERSION,COVERS='rg-covers',AUDIO='rg-audio';
+const VERSION='v2',SHELL='rg-shell-'+VERSION,COVERS='rg-covers',AUDIO='rg-audio';
 const JSM='https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js';
-const ASSETS=['./','index.html','qrcode.js','default.jpg','default_500.jpg','cover.svg','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable-192.png','icon-maskable-512.png','apple-touch-icon.png'];
+const ASSETS=['./','index.html','qrcode.js','default.jpg','default_500.jpg','cover.svg','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable-192.png','icon-maskable-512.png','apple-touch-icon.png','contact_qr.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(SHELL).then(async c=>{await c.addAll(ASSETS);try{await c.add(new Request(JSM,{mode:'cors'}))}catch(_){}}).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('rg-shell-')&&k!==SHELL).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 const strip=u=>{const x=new URL(u);x.search='';x.hash='';return x.href};
