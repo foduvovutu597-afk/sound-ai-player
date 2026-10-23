@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trumpet Alone — только труба, иногда пианино — Suno</title>
+<style>
+  :root { --bg:#0f1115; --card:#1a1e26; --text:#e8eaed; --muted:#9aa0a6; --accent:#c9a227; --ok:#3dd68c; --border:#2a3140; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--bg); color:var(--text); padding:24px; line-height:1.45; }
+  h1 { font-size:1.4rem; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 24px; font-size:0.9rem; }
+  .field { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; margin-bottom:16px; }
+  .field-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px; }
+  .label { font-weight:600; font-size:0.85rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--accent); }
+  button { background:var(--accent); color:#111; border:none; border-radius:8px; padding:8px 14px; font-weight:600; cursor:pointer; font-size:0.85rem; white-space:nowrap; }
+  button:hover { filter:brightness(1.08); }
+  button.copied { background:var(--ok); }
+  pre { margin:0; white-space:pre-wrap; word-break:break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:0.9rem; background:#12151b; border-radius:8px; padding:12px; border:1px solid var(--border); }
+  .all { margin-top:8px; }
+</style>
+</head>
+<body>
+  <h1>Trumpet Alone — только труба, иногда пианино</h1>
+  <p class="sub">Suno Custom mode — только труба, иногда пианино</p>
+
+  <div class="field">
+    <div class="field-head">
+      <span class="label">Title</span>
+      <button type="button" data-copy="title">Копировать</button>
+    </div>
+    <pre id="title">Trumpet Alone — только труба, иногда пианино</pre>
+  </div>
+
+  <div class="field">
+    <div class="field-head">
+      <span class="label">Style of Music</span>
+      <button type="button" data-copy="style">Копировать</button>
+    </div>
+    <pre id="style">solo trumpet, occasional soft piano, warm, melodic, intimate, 78 bpm, sparse, no drums, no bass, instrumental</pre>
+  </div>
+
+  <div class="field">
+    <div class="field-head">
+      <span class="label">Lyrics</span>
+      <button type="button" data-copy="lyrics">Копировать</button>
+    </div>
+    <pre id="lyrics">[Instrumental]
+[Intro: soft piano chord, then solo trumpet enters]
+[Verse: trumpet melody, gentle and clear]
+[Bridge: muted trumpet, soft piano answers]
+[Chorus: brighter trumpet line, piano chords under]
+[Break: only piano, quiet]
+[Final: trumpet returns, slow fade with one piano note]</pre>
+  </div>
+
+  <div class="field">
+    <div class="field-head">
+      <span class="label">Exclude styles</span>
+      <button type="button" data-copy="exclude">Копировать</button>
+    </div>
+    <pre id="exclude">vocals, guitar, drums, bass, synth, orchestra, saxophone, flute, electronic, rock, rap</pre>
+  </div>
+
+  <div class="field all">
+    <div class="field-head">
+      <span class="label">Всё сразу</span>
+      <button type="button" id="copy-all">Копировать всё</button>
+    </div>
+  </div>
+
+<script>
+function flash(btn) {
+  const t = btn.textContent;
+  btn.textContent = 'Скопировано';
+  btn.classList.add('copied');
+  setTimeout(() => { btn.textContent = t; btn.classList.remove('copied'); }, 1400);
+}
+async function copyText(text, btn) {
+  try {
+    await navigator.clipboard.writeText(text);
+    flash(btn);
+  } catch (e) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+    flash(btn);
+  }
+}
+document.querySelectorAll('button[data-copy]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.getAttribute('data-copy');
+    copyText(document.getElementById(id).textContent, btn);
+  });
+});
+document.getElementById('copy-all').addEventListener('click', () => {
+  const all = [
+    'Title:\n' + document.getElementById('title').textContent,
+    'Style of Music:\n' + document.getElementById('style').textContent,
+    'Lyrics:\n' + document.getElementById('lyrics').textContent,
+    'Exclude styles:\n' + document.getElementById('exclude').textContent
+  ].join('\n\n');
+  copyText(all, document.getElementById('copy-all'));
+});
+</script>
+</body>
+</html>
